@@ -227,3 +227,8 @@ Player
 MUSHROOM UPDATE:
 MUSHROOMS! IN THE SKY!
 You can climb up stems and jump on clouds.
+
+SUPER UPDATE:
+Updated seas, loot tables, space, rasta skeletons, cannons, boat pirates!
+Just don't get shot by cannons from boat pirates. 
+The world just got a bit bigger!
