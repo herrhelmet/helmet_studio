@@ -1,0 +1,229 @@
+READ THIS BEFORE PLAYING
+
+If you do not know what an item looks like, check the textures in this folder.
+
+Welcome to the world of BONES! 
+I am your guide.   Call me Nick.
+WATCH YOUR FOOD AND WATER
+Your quest is to destroy the 30 cursed purple lanterns around the world. The lanterns require a cutlass to be destroyed.
+
+Controls:
+Use the arrow buttons to move or w a s d.
+Dashing:
+Press q to dash left and e to dash right. This can get you across small gaps and past entities.
+
+Click blocks adjacent to you to interact with them. (Example, picking up a bone)
+If you click an entity (like a skeleton) you will attack it.
+hand
+Click an item in your inventory to equip it to your right hand. Click the item in your right hand to return it to your inventory.
+Use the 'use' and 'drop' buttons or keys:  m - use item    u - drop item (this will permanently remove the item from game)
+You can equip armour by clicking it. This will remove and automatically drop your previous armour. Clicking a shield will put it in your left hand.
+Only with a shield in your left hand or cutlass in your main hand, can you block. You can attack with a shield in your left hand, even without
+an item in your right hand. You can only return an item from your left hand to your inventory by replacing it. Clicking your left hand drops the item that was in that hand.
+
+Use n to block. If you see a "x" in the bottom of your screen, you are blocking.
+
+
+Interactions:     (Click blocks adjacent to the player to interact)
+With a pickaxe in your hand, you can break most stone like blocks like ores.
+With an axe in your hand, you can break leaves and logs.
+Normally, you can dig dirt and sand. You can also pick berries from bushes and you can pick up sticks and bones.
+With a bucket in your hand, you can catch fish.     Click treasure chests to open them.
+You can trade with other people and craft using anvils.
+
+Boats:
+When adjacent to a boat, click it to get into the boat. Jump to leave the boat. USE BOATS for water transport
+
+Ladders:
+Press m with a ladder in your hand to place it. The block that you are in will become a ladder. Make sure to pack your ladders when visiting temples.
+You can climb up ladders and vines using up and down buttons or w and s.
+
+Anvils:
+You can craft by interacting with an anvil. However, the things that you can craft are very limited.
+Here are your crafting recipes:
+3 sticks - 1 ladder
+8 iron - iron shield
+8 copper - copper shield
+8 bones - bone armour
+
+Trades:
+When you trade, you can buy some items like buckets and pickaxes or you can buy food items and pouches.
+You need doubloons to trade. Thankfully you can sell ores and fish to get doubloons.
+You can also buy weapons and armour. Here is a list of all the items you can trade for: (all will not be available at once)
+-herbs  -bread  -buckets  -ladders  -pickaxe   -pouches
+-doubloons (I told you that you could sell stuff)  -axes  -armour  -cutlass
+To acquire the great cutlass you must trade for all armour and axes first.
+
+
+
+Tips:
+Go mining! Ores can be quite useful.
+Finding wild potatoes and bushes can help you get food if you need it.
+Fill up your pouch by interacting with water with a pouch.
+Bushes might have other useful items as well as berries.
+Skeletons and boars are bad. Everything else is good.
+When you defeat an enemy, you might get a useful item added to your inventory.
+Herbs are rare, acquired exclusively by trading.
+
+
+The player:
+You are a human. You have these statistics:
+
+Wound threshold (WT) - This is your health. You have 13 health points. 
+This replenishes very slowly but it can be healed with the right herb.
+If it reaches 0, that is game over. No respawns, no tricks. If you die, restart the game.
+
+Strain threshold (ST)- This is your endurance. You have 14 strain points but it can increase to 20.
+These can not directly kill you, but be careful, because passing out while underwater or fighting a group of wild boars will be deadly.
+You can suffer strain in the following ways:
+-Swimming (just use a boat) You have around 40-50 seconds under water before you pass out with 14 ST.
+-Pufferfish (don't touch it)
+-Spider
+-Dashing (it is not an efficient form of travel)
+-A certain herb
+-Blocking
+-Opening ancient treasures (imagine getting knocked out by treasure) Also when you open treasure it becomes sand.
+It replenishes over time and it can be recovered with a herb.
+
+Soak - this is how much damage you can take before your health depletes. Think of it as armour.
+Your default is 3. Each tier of armour increases your soak. Imagine that I am hit with 5 damage and my soak is 3. I take 2 damage.
+
+Damage - this is how much damage you give. The default is 3. Weapons and certain heavy items will increase your damage - only when equipped.
+
+Defence - the default is 0. When you block with a certain item that gives you defence (like a shield), each point of defence blocks 25% of all damage.
+Blocking is achieved by pressing  n  with a shield or cutlass equipped. This takes strain. Defence does not stack.
+ 
+Food/Water - Don't let these run out. If you do that is Game Over.
+Use pouches and fill them up by using an empty pouch near water. Use full pouches to replenish your water.
+Potatoes, berries, bread (acquired exclusively by trading), fish and herbs will all replenish your food and some of your water.
+You have 10 points of food and 10 points of water. This is how much food and water each item gives.
+
+Item        Food   Water
+-------------------------
+Pouch         0      8
+Fish          5      2
+Bread         8      0
+Potato        4      1
+Berries       1      1
+Herb          2      1
+
+Structures:
+
+Village:
+This is a very safe structure where you will find other humans as well as farms and anvils. Look for small wooden huts.
+These also contain tents. Interact with a tent to skip the night.
+
+Ship:
+Boats on the sea. A bit empty though.
+
+Shipwreck:
+Boats in the sea or on the beach. Look for treasures inside or under the sand.
+
+Sea temple:
+Look for the aqua coloured bricks and the sea lanterns. Usually means treasure.
+
+Mineshaft:
+Makes caves feel less lonely. There might be bones and skeletons.
+
+Treehouse:
+Who doesn't like trees.
+
+Tower:
+Pretty imposing. Try to go fast if you want to beat it. There is good treasure if you do.
+
+Ancient temple:
+These were made by an ancient evil long ago. Their purple lanterns are the cause of the skeletons. Your task is to destroy them. 
+Pack ladders and you may need multiple trips. 5 of these temples are fairly moderate and easy to find -
+just look for evil looking holes in the ground with ladders or water. There is lava and if you touch it you will die.
+The sixth temple is hidden and you have to mine to find it. Look around the mountain. 
+
+
+Purple lanterns:
+While the ancient temples hold 6 of these cursed lanterns, 24 lie in space almost unguarded. Look near the ground and you will find them.
+To get to space, go to the mountain, jump, then enjoy the lack of gravity.
+
+
+
+Combat:
+When you are near a skeleton, it will raise its axe or move its cutlass. Dash away, block or simply move away quickly to dodge.
+However, the best thing to do is attack quickly, then dash away. 
+Wild boars do not give you a warning, but they attack slower. The best thing to do is get near and attack very quickly and you should be fine.
+(It is slightly easier to defeat a pig than an undead skeleton with an axe) 
+Don't touch the gelatinous cube. If you do, attack as fast as you can.
+ 
+
+Creatures:
+
+Skeleton- These like to appear at night, below the surface, underwater and in space. 
+They will appear quite frequently in groups of 1 or 2. Armoured skeletons are rarer versions of normal skeletons.
+Skeletons in stronger armour are more likely to be found in towers or temples.
+
+Pirate skeleton- These are a far more powerful version of the skeleton. They rarely spawn but they like to spawn near temples and towers.
+
+Boar- These pigs are quite aggressive and will attack you if they see you. Just try to avoid.
+
+Gelatinous cube- These like to appear near towers or temples and they like to knock you back instead of dealing lots of damage.
+
+Spider- These like to appear at night, in caves and at any time in trees. They will jump around and try and deal strain. 
+They can't directly kill you but if you are fighting other things they are likely to.
+
+Pufferfish- Just don't go towards the pufferfish.
+
+Fish- They appear wherever there is water, or in space. They can be valuable food if you use a bucket.
+
+Turtle- They will just completely avoid you. There is no purpose to killing them.
+
+Bird- will just appear on the ground. There is no purpose to killing them.
+
+Enjoy my game!  
+Notes: If you don't know what an item is or what a block is, check my textures and see their names.  
+Statistics
+
+Item     Damage    Defence
+        (Base: 3)
+--------------------------
+Bone       +1         0
+Stick      +1         0
+Bucket     +1         0
+Copper
+ shield    +1        +1
+Iron
+ shield    +1        +2
+Pickaxe    +2         0
+Wood axe   +2         0
+Bone axe   +3         0
+Copper axe +4         0
+Iron axe   +5         0
+Cutlass    +6        +1
+Diamond 
+  axe      +6         0
+
+Armour    Soak (Base: 3)
+---------------
+Leather   +1
+Bone      +2
+Copper    +3
+Iron      +4
+Diamond   +5
+
+
+Enemy       WT  Soak  Damage  Defence
+-------------------------------------
+Skeleton    7    3      7       0    (Note these can wear armour which increases their soak and WT where 1 tier of armour adds 1 soak and 3 WT)
+Boar        4    3      5       0
+Spider      2    1      4       0    (Damage is dealt as strain, which is not blocked by soak)
+Fish        1    0      0       0
+Bird        2    0      0       0
+Turtle      12   6      0       0
+Gelatinous  
+  cube      32   2      4       0    (These knock you back a lot so watch out. During this knockback they inflict 1 strain.)
+Pirate
+ skeleton   16   6      9       1
+Pufferfish  1    0      3       0    (Damage is dealt as strain, which is not blocked by soak)
+Player
+(reference) 13   3      3       0    (Strain threshold 14. Soak, defence and damage can all increase with items)
+
+
+MUSHROOM UPDATE:
+MUSHROOMS! IN THE SKY!
+You can climb up stems and jump on clouds.
