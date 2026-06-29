@@ -10221,8 +10221,8 @@ def spawn_boat():
 def move_bullet():
     global world
     global wt
+    remove_and_replace(54,0)
     if obj_in_world(54) == True:
-        remove_and_replace(54,0)
         y = find_y_of(54)
         x = find_x_of(54,y)
         if world[y][x-1] == 0:
