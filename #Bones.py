@@ -10230,7 +10230,7 @@ def move_bullet():
             world[y][x] = 0
         elif world[y][x-1] == 44:
             world[y][x] = 0
-            e = calc(5)
+            e = calc(6)
             wt = wt - e
         else:
             world[y][x] = 0
