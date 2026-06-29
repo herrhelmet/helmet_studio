@@ -10557,24 +10557,28 @@ def move_enemy(enemy):
             if world[y][x+1] == 0:
                 world[y][x+1] = enemy
                 world[y][x] = 0
+            elif world[y][x+1] == 44:
+                pass
             else:
                 if world[y-1][x] == 0:
                     world[y-1][x] = enemy
                     world[y][x] = 0
-                    if world[y][x+1] == 0:
-                        world[y][x+1] = enemy
-                        world[y][x] = 0
+                    if world[y-1][x+1] == 0:
+                        world[y-1][x+1] = enemy
+                        world[y-1][x] = 0
         elif x > x2:
             if world[y][x-1] == 0:
                 world[y][x-1] = enemy
                 world[y][x] = 0
+            elif world[y][x-1] == 44:
+                pass
             else:
                 if world[y-1][x] == 0:
                     world[y-1][x] = enemy
                     world[y][x] = 0
-                    if world[y][x-1] == 0:
-                        world[y][x-1] = enemy
-                        world[y][x] = 0
+                    if world[y-1][x-1] == 0:
+                        world[y-1][x-1] = enemy
+                        world[y-1][x] = 0
         elif y > y2:
             if world[y-1][x] == 0:
                 world[y-1][x] = enemy
