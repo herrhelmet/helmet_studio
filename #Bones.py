@@ -10244,10 +10244,11 @@ def spawn_bullet():
         if world[y][x-1] == 0:
             world[y][x-1] = 54
             update_world()
-        x = find_x_of(54,y)
-        if world[y][x+1] == 0:
-            world[y][x] = 0
-            world[y][x+1] = 54
+        if obj_in_world(54) == True:
+            x = find_x_of(54,y)
+            if world[y][x+1] == 0:
+                world[y][x] = 0
+                world[y][x+1] = 54
     update_world()
 def spawn_skeleton(): #36/37      
  global world
