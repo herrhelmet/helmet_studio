@@ -5,7 +5,14 @@ If you do not know what an item looks like, check the textures in this folder.
 Welcome to the world of BONES! 
 I am your guide.   Call me Nick.
 WATCH YOUR FOOD AND WATER
-Your quest is to destroy the 30 cursed purple lanterns around the world. The lanterns require a cutlass to be destroyed.
+
+A long time ago, the first people of the land of Bones tried to explore every corner of the world, which they successfully did. 
+They built sea temples and villages and mines and towers to show their power. They even went into space and tried to explore what was beyond.
+However, they also tried to experiment with magic, creating purple lanterns. The people first believed that these were great, and put them 
+all around the world in temples and in space. Unfortunately, these lanterns caused almost all the people to become skeletons. The more aggressive people,
+like the soldiers and pirates kept their aggression, while having it permanently sustained by the purple lanterns. The peaceful miners and farmers were left
+unharmed and the wisest of the people who were responsible for this mistake were also turned into skeletons, but due to their good intentions were not made aggressive.
+Your quest is to destroy the 30 cursed purple lanterns around the world. The lanterns require a cutlass to be destroyed. you are the last remaining soldier of the world.
 
 Controls:
 Use the arrow buttons to move or w a s d.
@@ -132,7 +139,8 @@ Tower:
 Pretty imposing. Try to go fast if you want to beat it. There is good treasure if you do.
 
 Ancient temple:
-These were made by an ancient evil long ago. Their purple lanterns are the cause of the skeletons' aggressiveness. Your task is to destroy them. 
+These were once meant to be sacred places but they have now abandoned their brighter past. 
+Their purple lanterns are the cause of the skeletons' aggressiveness. Your task is to destroy them. 
 Pack ladders and you may need multiple trips. 5 of these temples are fairly moderate and easy to find -
 just look for evil looking holes in the ground with ladders or water. There is lava and if you touch it you will die.
 The sixth temple is hidden. Try the farthest eastern regions of the world. 
@@ -233,3 +241,6 @@ Updated seas, loot tables, space, rasta skeletons, cannons, boat pirates!
 Just don't get shot by cannons from boat pirates. 
 You can't attack the rasta skeletons because they are harmless. Boat pirates can not directly attack you or move but their few 
 weaknesses in their bones are protected by the boat, making them invulnerable. Bullets deal 5 damage.
+
+Space towers:
+The people of old once tried to explore space, and they successfully did, creating these almost futuristic outposts while they tried to study what was beyond.
