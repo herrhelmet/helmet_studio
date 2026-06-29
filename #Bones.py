@@ -361,7 +361,9 @@ def interact(x,y):
   global rh
   global st
   axes = [1,2,3,4,30]
-  loot = [18,18,18,13,13,6,2,16,16,22,22,14,12,12,12,12]
+  loot1 = [26,26,26,26,27,27,25,16,16]
+  loot2 = [2,2,2,6,6,6,13,13,13]
+  loot3 = [18,18,18,18,22,22,22,28,28]
   global world
   global day
   global boat_
@@ -421,9 +423,9 @@ def interact(x,y):
     elif place == 30:
         world[a][b] = 2
         add(18)
-        add(loot[random.randint(0,15)])
-        add(loot[random.randint(0,15)])
-        add(loot[random.randint(0,15)])
+        add(loot1[random.randint(0,8)])
+        add(loot2[random.randint(0,8)])
+        add(loot3[random.randint(0,8)])
         st += -1
     elif place == 26:
         craft = True
@@ -454,6 +456,9 @@ def interact(x,y):
         world[a][b] = 0
     elif 31 < place and place < 48:
         attack(place)
+    elif place == 55:
+        world[a][b] = 0
+        add(18)
     else:
         pass
     update_world()
@@ -530,7 +535,16 @@ stem = tkinter.PhotoImage(file="stem.png") #50
 shroom_r = tkinter.PhotoImage(file="shroom_r.png") #51
 shroom_b = tkinter.PhotoImage(file="shroom_b.png") #52
 #balls
-boat_pirate = tkinter.PhotoImage(file="boat_pirate.png")
+boat_pirate = tkinter.PhotoImage(file="boat_pirate.png") #53
+bullet = tkinter.PhotoImage(file="bullet.png") #54
+g_ore = tkinter.PhotoImage(file="gold_ore.png") #55
+book = tkinter.PhotoImage(file="bookshelf.png") #56
+grass_g = tkinter.PhotoImage(file="grass_g.png") #57
+grass_o = tkinter.PhotoImage(file="grass_o.png") #58
+kelp = tkinter.PhotoImage(file="kelp.png") #59
+frame = tkinter.PhotoImage(file="iron_frame.png") #60
+tower = tkinter.PhotoImage(file="space_tower.png") #61
+rasta = tkinter.PhotoImage(file="rasta_skeleton.png") #62
 #blank = i0
 w_axe = tkinter.PhotoImage(file="wood_axe.png") #i1
 b_axe = tkinter.PhotoImage(file="bone_axe.png") #i2
@@ -2182,6 +2196,26 @@ def update_world():
         a1.config(bg=back,image=shroom_r)
     elif e == 52:
         a1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a1.config(bg=back,image=bullet)
+    elif e == 55:
+        a1.config(bg=back,image=g_ore)
+    elif e == 56:
+        a1.config(bg=back,image=book)
+    elif e == 57:
+        a1.config(bg=back,image=grass_g)
+    elif e == 58:
+        a1.config(bg=back,image=grass_o)
+    elif e == 59:
+        a1.config(bg=back,image=kelp)
+    elif e == 60:
+        a1.config(bg=back,image=frame)
+    elif e == 61:
+        a1.config(bg=back,image=tower)
+    elif e == 62:
+        a1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -2322,6 +2356,26 @@ def update_world():
         b1.config(bg=back,image=shroom_r)
     elif e == 52:
         b1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b1.config(bg=back,image=bullet)
+    elif e == 55:
+        b1.config(bg=back,image=g_ore)
+    elif e == 56:
+        b1.config(bg=back,image=book)
+    elif e == 57:
+        b1.config(bg=back,image=grass_g)
+    elif e == 58:
+        b1.config(bg=back,image=grass_o)
+    elif e == 59:
+        b1.config(bg=back,image=kelp)
+    elif e == 60:
+        b1.config(bg=back,image=frame)
+    elif e == 61:
+        b1.config(bg=back,image=tower)
+    elif e == 62:
+        b1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -2462,6 +2516,26 @@ def update_world():
         c1.config(bg=back,image=shroom_r)
     elif e == 52:
         c1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c1.config(bg=back,image=bullet)
+    elif e == 55:
+        c1.config(bg=back,image=g_ore)
+    elif e == 56:
+        c1.config(bg=back,image=book)
+    elif e == 57:
+        c1.config(bg=back,image=grass_g)
+    elif e == 58:
+        c1.config(bg=back,image=grass_o)
+    elif e == 59:
+        c1.config(bg=back,image=kelp)
+    elif e == 60:
+        c1.config(bg=back,image=frame)
+    elif e == 61:
+        c1.config(bg=back,image=tower)
+    elif e == 62:
+        c1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -2602,6 +2676,26 @@ def update_world():
         d1.config(bg=back,image=shroom_r)
     elif e == 52:
         d1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d1.config(bg=back,image=bullet)
+    elif e == 55:
+        d1.config(bg=back,image=g_ore)
+    elif e == 56:
+        d1.config(bg=back,image=book)
+    elif e == 57:
+        d1.config(bg=back,image=grass_g)
+    elif e == 58:
+        d1.config(bg=back,image=grass_o)
+    elif e == 59:
+        d1.config(bg=back,image=kelp)
+    elif e == 60:
+        d1.config(bg=back,image=frame)
+    elif e == 61:
+        d1.config(bg=back,image=tower)
+    elif e == 62:
+        d1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -2742,6 +2836,26 @@ def update_world():
         e1.config(bg=back,image=shroom_r)
     elif e == 52:
         e1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e1.config(bg=back,image=bullet)
+    elif e == 55:
+        e1.config(bg=back,image=g_ore)
+    elif e == 56:
+        e1.config(bg=back,image=book)
+    elif e == 57:
+        e1.config(bg=back,image=grass_g)
+    elif e == 58:
+        e1.config(bg=back,image=grass_o)
+    elif e == 59:
+        e1.config(bg=back,image=kelp)
+    elif e == 60:
+        e1.config(bg=back,image=frame)
+    elif e == 61:
+        e1.config(bg=back,image=tower)
+    elif e == 62:
+        e1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -2882,6 +2996,26 @@ def update_world():
         f1.config(bg=back,image=shroom_r)
     elif e == 52:
         f1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f1.config(bg=back,image=bullet)
+    elif e == 55:
+        f1.config(bg=back,image=g_ore)
+    elif e == 56:
+        f1.config(bg=back,image=book)
+    elif e == 57:
+        f1.config(bg=back,image=grass_g)
+    elif e == 58:
+        f1.config(bg=back,image=grass_o)
+    elif e == 59:
+        f1.config(bg=back,image=kelp)
+    elif e == 60:
+        f1.config(bg=back,image=frame)
+    elif e == 61:
+        f1.config(bg=back,image=tower)
+    elif e == 62:
+        f1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3022,6 +3156,26 @@ def update_world():
         g1.config(bg=back,image=shroom_r)
     elif e == 52:
         g1.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g1.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g1.config(bg=back,image=bullet)
+    elif e == 55:
+        g1.config(bg=back,image=g_ore)
+    elif e == 56:
+        g1.config(bg=back,image=book)
+    elif e == 57:
+        g1.config(bg=back,image=grass_g)
+    elif e == 58:
+        g1.config(bg=back,image=grass_o)
+    elif e == 59:
+        g1.config(bg=back,image=kelp)
+    elif e == 60:
+        g1.config(bg=back,image=frame)
+    elif e == 61:
+        g1.config(bg=back,image=tower)
+    elif e == 62:
+        g1.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3162,6 +3316,26 @@ def update_world():
         a2.config(bg=back,image=shroom_r)
     elif e == 52:
         a2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a2.config(bg=back,image=bullet)
+    elif e == 55:
+        a2.config(bg=back,image=g_ore)
+    elif e == 56:
+        a2.config(bg=back,image=book)
+    elif e == 57:
+        a2.config(bg=back,image=grass_g)
+    elif e == 58:
+        a2.config(bg=back,image=grass_o)
+    elif e == 59:
+        a2.config(bg=back,image=kelp)
+    elif e == 60:
+        a2.config(bg=back,image=frame)
+    elif e == 61:
+        a2.config(bg=back,image=tower)
+    elif e == 62:
+        a2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3302,6 +3476,26 @@ def update_world():
         b2.config(bg=back,image=shroom_r)
     elif e == 52:
         b2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b2.config(bg=back,image=bullet)
+    elif e == 55:
+        b2.config(bg=back,image=g_ore)
+    elif e == 56:
+        b2.config(bg=back,image=book)
+    elif e == 57:
+        b2.config(bg=back,image=grass_g)
+    elif e == 58:
+        b2.config(bg=back,image=grass_o)
+    elif e == 59:
+        b2.config(bg=back,image=kelp)
+    elif e == 60:
+        b2.config(bg=back,image=frame)
+    elif e == 61:
+        b2.config(bg=back,image=tower)
+    elif e == 62:
+        b2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3442,6 +3636,26 @@ def update_world():
         c2.config(bg=back,image=shroom_r)
     elif e == 52:
         c2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c2.config(bg=back,image=bullet)
+    elif e == 55:
+        c2.config(bg=back,image=g_ore)
+    elif e == 56:
+        c2.config(bg=back,image=book)
+    elif e == 57:
+        c2.config(bg=back,image=grass_g)
+    elif e == 58:
+        c2.config(bg=back,image=grass_o)
+    elif e == 59:
+        c2.config(bg=back,image=kelp)
+    elif e == 60:
+        c2.config(bg=back,image=frame)
+    elif e == 61:
+        c2.config(bg=back,image=tower)
+    elif e == 62:
+        c2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3582,6 +3796,26 @@ def update_world():
         d2.config(bg=back,image=shroom_r)
     elif e == 52:
         d2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d2.config(bg=back,image=bullet)
+    elif e == 55:
+        d2.config(bg=back,image=g_ore)
+    elif e == 56:
+        d2.config(bg=back,image=book)
+    elif e == 57:
+        d2.config(bg=back,image=grass_g)
+    elif e == 58:
+        d2.config(bg=back,image=grass_o)
+    elif e == 59:
+        d2.config(bg=back,image=kelp)
+    elif e == 60:
+        d2.config(bg=back,image=frame)
+    elif e == 61:
+        d2.config(bg=back,image=tower)
+    elif e == 62:
+        d2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3722,6 +3956,26 @@ def update_world():
         e2.config(bg=back,image=shroom_r)
     elif e == 52:
         e2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e2.config(bg=back,image=bullet)
+    elif e == 55:
+        e2.config(bg=back,image=g_ore)
+    elif e == 56:
+        e2.config(bg=back,image=book)
+    elif e == 57:
+        e2.config(bg=back,image=grass_g)
+    elif e == 58:
+        e2.config(bg=back,image=grass_o)
+    elif e == 59:
+        e2.config(bg=back,image=kelp)
+    elif e == 60:
+        e2.config(bg=back,image=frame)
+    elif e == 61:
+        e2.config(bg=back,image=tower)
+    elif e == 62:
+        e2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -3862,6 +4116,26 @@ def update_world():
         f2.config(bg=back,image=shroom_r)
     elif e == 52:
         f2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f2.config(bg=back,image=bullet)
+    elif e == 55:
+        f2.config(bg=back,image=g_ore)
+    elif e == 56:
+        f2.config(bg=back,image=book)
+    elif e == 57:
+        f2.config(bg=back,image=grass_g)
+    elif e == 58:
+        f2.config(bg=back,image=grass_o)
+    elif e == 59:
+        f2.config(bg=back,image=kelp)
+    elif e == 60:
+        f2.config(bg=back,image=frame)
+    elif e == 61:
+        f2.config(bg=back,image=tower)
+    elif e == 62:
+        f2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4002,6 +4276,26 @@ def update_world():
         g2.config(bg=back,image=shroom_r)
     elif e == 52:
         g2.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g2.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g2.config(bg=back,image=bullet)
+    elif e == 55:
+        g2.config(bg=back,image=g_ore)
+    elif e == 56:
+        g2.config(bg=back,image=book)
+    elif e == 57:
+        g2.config(bg=back,image=grass_g)
+    elif e == 58:
+        g2.config(bg=back,image=grass_o)
+    elif e == 59:
+        g2.config(bg=back,image=kelp)
+    elif e == 60:
+        g2.config(bg=back,image=frame)
+    elif e == 61:
+        g2.config(bg=back,image=tower)
+    elif e == 62:
+        g2.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4142,6 +4436,26 @@ def update_world():
         a3.config(bg=back,image=shroom_r)
     elif e == 52:
         a3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a3.config(bg=back,image=bullet)
+    elif e == 55:
+        a3.config(bg=back,image=g_ore)
+    elif e == 56:
+        a3.config(bg=back,image=book)
+    elif e == 57:
+        a3.config(bg=back,image=grass_g)
+    elif e == 58:
+        a3.config(bg=back,image=grass_o)
+    elif e == 59:
+        a3.config(bg=back,image=kelp)
+    elif e == 60:
+        a3.config(bg=back,image=frame)
+    elif e == 61:
+        a3.config(bg=back,image=tower)
+    elif e == 62:
+        a3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4282,6 +4596,26 @@ def update_world():
         b3.config(bg=back,image=shroom_r)
     elif e == 52:
         b3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b3.config(bg=back,image=bullet)
+    elif e == 55:
+        b3.config(bg=back,image=g_ore)
+    elif e == 56:
+        b3.config(bg=back,image=book)
+    elif e == 57:
+        b3.config(bg=back,image=grass_g)
+    elif e == 58:
+        b3.config(bg=back,image=grass_o)
+    elif e == 59:
+        b3.config(bg=back,image=kelp)
+    elif e == 60:
+        b3.config(bg=back,image=frame)
+    elif e == 61:
+        b3.config(bg=back,image=tower)
+    elif e == 62:
+        b3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4422,6 +4756,26 @@ def update_world():
         c3.config(bg=back,image=shroom_r)
     elif e == 52:
         c3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c3.config(bg=back,image=bullet)
+    elif e == 55:
+        c3.config(bg=back,image=g_ore)
+    elif e == 56:
+        c3.config(bg=back,image=book)
+    elif e == 57:
+        c3.config(bg=back,image=grass_g)
+    elif e == 58:
+        c3.config(bg=back,image=grass_o)
+    elif e == 59:
+        c3.config(bg=back,image=kelp)
+    elif e == 60:
+        c3.config(bg=back,image=frame)
+    elif e == 61:
+        c3.config(bg=back,image=tower)
+    elif e == 62:
+        c3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4562,6 +4916,26 @@ def update_world():
         d3.config(bg=back,image=shroom_r)
     elif e == 52:
         d3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d3.config(bg=back,image=bullet)
+    elif e == 55:
+        d3.config(bg=back,image=g_ore)
+    elif e == 56:
+        d3.config(bg=back,image=book)
+    elif e == 57:
+        d3.config(bg=back,image=grass_g)
+    elif e == 58:
+        d3.config(bg=back,image=grass_o)
+    elif e == 59:
+        d3.config(bg=back,image=kelp)
+    elif e == 60:
+        d3.config(bg=back,image=frame)
+    elif e == 61:
+        d3.config(bg=back,image=tower)
+    elif e == 62:
+        d3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4702,6 +5076,26 @@ def update_world():
         e3.config(bg=back,image=shroom_r)
     elif e == 52:
         e3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e3.config(bg=back,image=bullet)
+    elif e == 55:
+        e3.config(bg=back,image=g_ore)
+    elif e == 56:
+        e3.config(bg=back,image=book)
+    elif e == 57:
+        e3.config(bg=back,image=grass_g)
+    elif e == 58:
+        e3.config(bg=back,image=grass_o)
+    elif e == 59:
+        e3.config(bg=back,image=kelp)
+    elif e == 60:
+        e3.config(bg=back,image=frame)
+    elif e == 61:
+        e3.config(bg=back,image=tower)
+    elif e == 62:
+        e3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4842,6 +5236,26 @@ def update_world():
         f3.config(bg=back,image=shroom_r)
     elif e == 52:
         f3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f3.config(bg=back,image=bullet)
+    elif e == 55:
+        f3.config(bg=back,image=g_ore)
+    elif e == 56:
+        f3.config(bg=back,image=book)
+    elif e == 57:
+        f3.config(bg=back,image=grass_g)
+    elif e == 58:
+        f3.config(bg=back,image=grass_o)
+    elif e == 59:
+        f3.config(bg=back,image=kelp)
+    elif e == 60:
+        f3.config(bg=back,image=frame)
+    elif e == 61:
+        f3.config(bg=back,image=tower)
+    elif e == 62:
+        f3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -4982,6 +5396,26 @@ def update_world():
         g3.config(bg=back,image=shroom_r)
     elif e == 52:
         g3.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g3.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g3.config(bg=back,image=bullet)
+    elif e == 55:
+        g3.config(bg=back,image=g_ore)
+    elif e == 56:
+        g3.config(bg=back,image=book)
+    elif e == 57:
+        g3.config(bg=back,image=grass_g)
+    elif e == 58:
+        g3.config(bg=back,image=grass_o)
+    elif e == 59:
+        g3.config(bg=back,image=kelp)
+    elif e == 60:
+        g3.config(bg=back,image=frame)
+    elif e == 61:
+        g3.config(bg=back,image=tower)
+    elif e == 62:
+        g3.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5122,6 +5556,26 @@ def update_world():
         a4.config(bg=back,image=shroom_r)
     elif e == 52:
         a4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a4.config(bg=back,image=bullet)
+    elif e == 55:
+        a4.config(bg=back,image=g_ore)
+    elif e == 56:
+        a4.config(bg=back,image=book)
+    elif e == 57:
+        a4.config(bg=back,image=grass_g)
+    elif e == 58:
+        a4.config(bg=back,image=grass_o)
+    elif e == 59:
+        a4.config(bg=back,image=kelp)
+    elif e == 60:
+        a4.config(bg=back,image=frame)
+    elif e == 61:
+        a4.config(bg=back,image=tower)
+    elif e == 62:
+        a4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5264,6 +5718,24 @@ def update_world():
         b4.config(bg=back,image=shroom_b)
     elif e == 53:
         b4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b4.config(bg=back,image=bullet)
+    elif e == 55:
+        b4.config(bg=back,image=g_ore)
+    elif e == 56:
+        b4.config(bg=back,image=book)
+    elif e == 57:
+        b4.config(bg=back,image=grass_g)
+    elif e == 58:
+        b4.config(bg=back,image=grass_o)
+    elif e == 59:
+        b4.config(bg=back,image=kelp)
+    elif e == 60:
+        b4.config(bg=back,image=frame)
+    elif e == 61:
+        b4.config(bg=back,image=tower)
+    elif e == 62:
+        b4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5404,6 +5876,26 @@ def update_world():
         c4.config(bg=back,image=shroom_r)
     elif e == 52:
         c4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c4.config(bg=back,image=bullet)
+    elif e == 55:
+        c4.config(bg=back,image=g_ore)
+    elif e == 56:
+        c4.config(bg=back,image=book)
+    elif e == 57:
+        c4.config(bg=back,image=grass_g)
+    elif e == 58:
+        c4.config(bg=back,image=grass_o)
+    elif e == 59:
+        c4.config(bg=back,image=kelp)
+    elif e == 60:
+        c4.config(bg=back,image=frame)
+    elif e == 61:
+        c4.config(bg=back,image=tower)
+    elif e == 62:
+        c4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5551,6 +6043,26 @@ def update_world():
         d4.config(bg=back,image=shroom_r)
     elif e == 52:
         d4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d4.config(bg=back,image=bullet)
+    elif e == 55:
+        d4.config(bg=back,image=g_ore)
+    elif e == 56:
+        d4.config(bg=back,image=book)
+    elif e == 57:
+        d4.config(bg=back,image=grass_g)
+    elif e == 58:
+        d4.config(bg=back,image=grass_o)
+    elif e == 59:
+        d4.config(bg=back,image=kelp)
+    elif e == 60:
+        d4.config(bg=back,image=frame)
+    elif e == 61:
+        d4.config(bg=back,image=tower)
+    elif e == 62:
+        d4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5691,6 +6203,26 @@ def update_world():
         e4.config(bg=back,image=shroom_r)
     elif e == 52:
         e4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e4.config(bg=back,image=bullet)
+    elif e == 55:
+        e4.config(bg=back,image=g_ore)
+    elif e == 56:
+        e4.config(bg=back,image=book)
+    elif e == 57:
+        e4.config(bg=back,image=grass_g)
+    elif e == 58:
+        e4.config(bg=back,image=grass_o)
+    elif e == 59:
+        e4.config(bg=back,image=kelp)
+    elif e == 60:
+        e4.config(bg=back,image=frame)
+    elif e == 61:
+        e4.config(bg=back,image=tower)
+    elif e == 62:
+        e4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5831,6 +6363,26 @@ def update_world():
         f4.config(bg=back,image=shroom_r)
     elif e == 52:
         f4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f4.config(bg=back,image=bullet)
+    elif e == 55:
+        f4.config(bg=back,image=g_ore)
+    elif e == 56:
+        f4.config(bg=back,image=book)
+    elif e == 57:
+        f4.config(bg=back,image=grass_g)
+    elif e == 58:
+        f4.config(bg=back,image=grass_o)
+    elif e == 59:
+        f4.config(bg=back,image=kelp)
+    elif e == 60:
+        f4.config(bg=back,image=frame)
+    elif e == 61:
+        f4.config(bg=back,image=tower)
+    elif e == 62:
+        f4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -5971,6 +6523,26 @@ def update_world():
         g4.config(bg=back,image=shroom_r)
     elif e == 52:
         g4.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g4.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g4.config(bg=back,image=bullet)
+    elif e == 55:
+        g4.config(bg=back,image=g_ore)
+    elif e == 56:
+        g4.config(bg=back,image=book)
+    elif e == 57:
+        g4.config(bg=back,image=grass_g)
+    elif e == 58:
+        g4.config(bg=back,image=grass_o)
+    elif e == 59:
+        g4.config(bg=back,image=kelp)
+    elif e == 60:
+        g4.config(bg=back,image=frame)
+    elif e == 61:
+        g4.config(bg=back,image=tower)
+    elif e == 62:
+        g4.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6111,6 +6683,26 @@ def update_world():
         a5.config(bg=back,image=shroom_r)
     elif e == 52:
         a5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a5.config(bg=back,image=bullet)
+    elif e == 55:
+        a5.config(bg=back,image=g_ore)
+    elif e == 56:
+        a5.config(bg=back,image=book)
+    elif e == 57:
+        a5.config(bg=back,image=grass_g)
+    elif e == 58:
+        a5.config(bg=back,image=grass_o)
+    elif e == 59:
+        a5.config(bg=back,image=kelp)
+    elif e == 60:
+        a5.config(bg=back,image=frame)
+    elif e == 61:
+        a5.config(bg=back,image=tower)
+    elif e == 62:
+        a5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6251,6 +6843,26 @@ def update_world():
         b5.config(bg=back,image=shroom_r)
     elif e == 52:
         b5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b5.config(bg=back,image=bullet)
+    elif e == 55:
+        b5.config(bg=back,image=g_ore)
+    elif e == 56:
+        b5.config(bg=back,image=book)
+    elif e == 57:
+        b5.config(bg=back,image=grass_g)
+    elif e == 58:
+        b5.config(bg=back,image=grass_o)
+    elif e == 59:
+        b5.config(bg=back,image=kelp)
+    elif e == 60:
+        b5.config(bg=back,image=frame)
+    elif e == 61:
+        b5.config(bg=back,image=tower)
+    elif e == 62:
+        b5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6391,6 +7003,26 @@ def update_world():
         c5.config(bg=back,image=shroom_r)
     elif e == 52:
         c5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c5.config(bg=back,image=bullet)
+    elif e == 55:
+        c5.config(bg=back,image=g_ore)
+    elif e == 56:
+        c5.config(bg=back,image=book)
+    elif e == 57:
+        c5.config(bg=back,image=grass_g)
+    elif e == 58:
+        c5.config(bg=back,image=grass_o)
+    elif e == 59:
+        c5.config(bg=back,image=kelp)
+    elif e == 60:
+        c5.config(bg=back,image=frame)
+    elif e == 61:
+        c5.config(bg=back,image=tower)
+    elif e == 62:
+        c5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6531,6 +7163,26 @@ def update_world():
         d5.config(bg=back,image=shroom_r)
     elif e == 52:
         d5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d5.config(bg=back,image=bullet)
+    elif e == 55:
+        d5.config(bg=back,image=g_ore)
+    elif e == 56:
+        d5.config(bg=back,image=book)
+    elif e == 57:
+        d5.config(bg=back,image=grass_g)
+    elif e == 58:
+        d5.config(bg=back,image=grass_o)
+    elif e == 59:
+        d5.config(bg=back,image=kelp)
+    elif e == 60:
+        d5.config(bg=back,image=frame)
+    elif e == 61:
+        d5.config(bg=back,image=tower)
+    elif e == 62:
+        d5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6671,6 +7323,26 @@ def update_world():
         e5.config(bg=back,image=shroom_r)
     elif e == 52:
         e5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e5.config(bg=back,image=bullet)
+    elif e == 55:
+        e5.config(bg=back,image=g_ore)
+    elif e == 56:
+        e5.config(bg=back,image=book)
+    elif e == 57:
+        e5.config(bg=back,image=grass_g)
+    elif e == 58:
+        e5.config(bg=back,image=grass_o)
+    elif e == 59:
+        e5.config(bg=back,image=kelp)
+    elif e == 60:
+        e5.config(bg=back,image=frame)
+    elif e == 61:
+        e5.config(bg=back,image=tower)
+    elif e == 62:
+        e5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6811,6 +7483,26 @@ def update_world():
         f5.config(bg=back,image=shroom_r)
     elif e == 52:
         f5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f5.config(bg=back,image=bullet)
+    elif e == 55:
+        f5.config(bg=back,image=g_ore)
+    elif e == 56:
+        f5.config(bg=back,image=book)
+    elif e == 57:
+        f5.config(bg=back,image=grass_g)
+    elif e == 58:
+        f5.config(bg=back,image=grass_o)
+    elif e == 59:
+        f5.config(bg=back,image=kelp)
+    elif e == 60:
+        f5.config(bg=back,image=frame)
+    elif e == 61:
+        f5.config(bg=back,image=tower)
+    elif e == 62:
+        f5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -6951,6 +7643,26 @@ def update_world():
         g5.config(bg=back,image=shroom_r)
     elif e == 52:
         g5.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g5.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g5.config(bg=back,image=bullet)
+    elif e == 55:
+        g5.config(bg=back,image=g_ore)
+    elif e == 56:
+        g5.config(bg=back,image=book)
+    elif e == 57:
+        g5.config(bg=back,image=grass_g)
+    elif e == 58:
+        g5.config(bg=back,image=grass_o)
+    elif e == 59:
+        g5.config(bg=back,image=kelp)
+    elif e == 60:
+        g5.config(bg=back,image=frame)
+    elif e == 61:
+        g5.config(bg=back,image=tower)
+    elif e == 62:
+        g5.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7091,6 +7803,26 @@ def update_world():
         a6.config(bg=back,image=shroom_r)
     elif e == 52:
         a6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a6.config(bg=back,image=bullet)
+    elif e == 55:
+        a6.config(bg=back,image=g_ore)
+    elif e == 56:
+        a6.config(bg=back,image=book)
+    elif e == 57:
+        a6.config(bg=back,image=grass_g)
+    elif e == 58:
+        a6.config(bg=back,image=grass_o)
+    elif e == 59:
+        a6.config(bg=back,image=kelp)
+    elif e == 60:
+        a6.config(bg=back,image=frame)
+    elif e == 61:
+        a6.config(bg=back,image=tower)
+    elif e == 62:
+        a6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7231,6 +7963,26 @@ def update_world():
         b6.config(bg=back,image=shroom_r)
     elif e == 52:
         b6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b6.config(bg=back,image=bullet)
+    elif e == 55:
+        b6.config(bg=back,image=g_ore)
+    elif e == 56:
+        b6.config(bg=back,image=book)
+    elif e == 57:
+        b6.config(bg=back,image=grass_g)
+    elif e == 58:
+        b6.config(bg=back,image=grass_o)
+    elif e == 59:
+        b6.config(bg=back,image=kelp)
+    elif e == 60:
+        b6.config(bg=back,image=frame)
+    elif e == 61:
+        b6.config(bg=back,image=tower)
+    elif e == 62:
+        b6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7371,6 +8123,26 @@ def update_world():
         c6.config(bg=back,image=shroom_r)
     elif e == 52:
         c6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c6.config(bg=back,image=bullet)
+    elif e == 55:
+        c6.config(bg=back,image=g_ore)
+    elif e == 56:
+        c6.config(bg=back,image=book)
+    elif e == 57:
+        c6.config(bg=back,image=grass_g)
+    elif e == 58:
+        c6.config(bg=back,image=grass_o)
+    elif e == 59:
+        c6.config(bg=back,image=kelp)
+    elif e == 60:
+        c6.config(bg=back,image=frame)
+    elif e == 61:
+        c6.config(bg=back,image=tower)
+    elif e == 62:
+        c6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7511,6 +8283,26 @@ def update_world():
         d6.config(bg=back,image=shroom_r)
     elif e == 52:
         d6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d6.config(bg=back,image=bullet)
+    elif e == 55:
+        d6.config(bg=back,image=g_ore)
+    elif e == 56:
+        d6.config(bg=back,image=book)
+    elif e == 57:
+        d6.config(bg=back,image=grass_g)
+    elif e == 58:
+        d6.config(bg=back,image=grass_o)
+    elif e == 59:
+        d6.config(bg=back,image=kelp)
+    elif e == 60:
+        d6.config(bg=back,image=frame)
+    elif e == 61:
+        d6.config(bg=back,image=tower)
+    elif e == 62:
+        d6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7651,6 +8443,26 @@ def update_world():
         e6.config(bg=back,image=shroom_r)
     elif e == 52:
         e6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e6.config(bg=back,image=bullet)
+    elif e == 55:
+        e6.config(bg=back,image=g_ore)
+    elif e == 56:
+        e6.config(bg=back,image=book)
+    elif e == 57:
+        e6.config(bg=back,image=grass_g)
+    elif e == 58:
+        e6.config(bg=back,image=grass_o)
+    elif e == 59:
+        e6.config(bg=back,image=kelp)
+    elif e == 60:
+        e6.config(bg=back,image=frame)
+    elif e == 61:
+        e6.config(bg=back,image=tower)
+    elif e == 62:
+        e6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7791,6 +8603,26 @@ def update_world():
         f6.config(bg=back,image=shroom_r)
     elif e == 52:
         f6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f6.config(bg=back,image=bullet)
+    elif e == 55:
+        f6.config(bg=back,image=g_ore)
+    elif e == 56:
+        f6.config(bg=back,image=book)
+    elif e == 57:
+        f6.config(bg=back,image=grass_g)
+    elif e == 58:
+        f6.config(bg=back,image=grass_o)
+    elif e == 59:
+        f6.config(bg=back,image=kelp)
+    elif e == 60:
+        f6.config(bg=back,image=frame)
+    elif e == 61:
+        f6.config(bg=back,image=tower)
+    elif e == 62:
+        f6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -7931,6 +8763,26 @@ def update_world():
         g6.config(bg=back,image=shroom_r)
     elif e == 52:
         g6.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g6.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g6.config(bg=back,image=bullet)
+    elif e == 55:
+        g6.config(bg=back,image=g_ore)
+    elif e == 56:
+        g6.config(bg=back,image=book)
+    elif e == 57:
+        g6.config(bg=back,image=grass_g)
+    elif e == 58:
+        g6.config(bg=back,image=grass_o)
+    elif e == 59:
+        g6.config(bg=back,image=kelp)
+    elif e == 60:
+        g6.config(bg=back,image=frame)
+    elif e == 61:
+        g6.config(bg=back,image=tower)
+    elif e == 62:
+        g6.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8071,6 +8923,26 @@ def update_world():
         a7.config(bg=back,image=shroom_r)
     elif e == 52:
         a7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        a7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        a7.config(bg=back,image=bullet)
+    elif e == 55:
+        a7.config(bg=back,image=g_ore)
+    elif e == 56:
+        a7.config(bg=back,image=book)
+    elif e == 57:
+        a7.config(bg=back,image=grass_g)
+    elif e == 58:
+        a7.config(bg=back,image=grass_o)
+    elif e == 59:
+        a7.config(bg=back,image=kelp)
+    elif e == 60:
+        a7.config(bg=back,image=frame)
+    elif e == 61:
+        a7.config(bg=back,image=tower)
+    elif e == 62:
+        a7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8211,6 +9083,26 @@ def update_world():
         b7.config(bg=back,image=shroom_r)
     elif e == 52:
         b7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        b7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        b7.config(bg=back,image=bullet)
+    elif e == 55:
+        b7.config(bg=back,image=g_ore)
+    elif e == 56:
+        b7.config(bg=back,image=book)
+    elif e == 57:
+        b7.config(bg=back,image=grass_g)
+    elif e == 58:
+        b7.config(bg=back,image=grass_o)
+    elif e == 59:
+        b7.config(bg=back,image=kelp)
+    elif e == 60:
+        b7.config(bg=back,image=frame)
+    elif e == 61:
+        b7.config(bg=back,image=tower)
+    elif e == 62:
+        b7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8351,6 +9243,26 @@ def update_world():
         c7.config(bg=back,image=shroom_r)
     elif e == 52:
         c7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        c7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        c7.config(bg=back,image=bullet)
+    elif e == 55:
+        c7.config(bg=back,image=g_ore)
+    elif e == 56:
+        c7.config(bg=back,image=book)
+    elif e == 57:
+        c7.config(bg=back,image=grass_g)
+    elif e == 58:
+        c7.config(bg=back,image=grass_o)
+    elif e == 59:
+        c7.config(bg=back,image=kelp)
+    elif e == 60:
+        c7.config(bg=back,image=frame)
+    elif e == 61:
+        c7.config(bg=back,image=tower)
+    elif e == 62:
+        c7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8491,6 +9403,26 @@ def update_world():
         d7.config(bg=back,image=shroom_r)
     elif e == 52:
         d7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        d7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        d7.config(bg=back,image=bullet)
+    elif e == 55:
+        d7.config(bg=back,image=g_ore)
+    elif e == 56:
+        d7.config(bg=back,image=book)
+    elif e == 57:
+        d7.config(bg=back,image=grass_g)
+    elif e == 58:
+        d7.config(bg=back,image=grass_o)
+    elif e == 59:
+        d7.config(bg=back,image=kelp)
+    elif e == 60:
+        d7.config(bg=back,image=frame)
+    elif e == 61:
+        d7.config(bg=back,image=tower)
+    elif e == 62:
+        d7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8631,6 +9563,26 @@ def update_world():
         e7.config(bg=back,image=shroom_r)
     elif e == 52:
         e7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        e7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        e7.config(bg=back,image=bullet)
+    elif e == 55:
+        e7.config(bg=back,image=g_ore)
+    elif e == 56:
+        e7.config(bg=back,image=book)
+    elif e == 57:
+        e7.config(bg=back,image=grass_g)
+    elif e == 58:
+        e7.config(bg=back,image=grass_o)
+    elif e == 59:
+        e7.config(bg=back,image=kelp)
+    elif e == 60:
+        e7.config(bg=back,image=frame)
+    elif e == 61:
+        e7.config(bg=back,image=tower)
+    elif e == 62:
+        e7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8771,6 +9723,26 @@ def update_world():
         f7.config(bg=back,image=shroom_r)
     elif e == 52:
         f7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        f7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        f7.config(bg=back,image=bullet)
+    elif e == 55:
+        f7.config(bg=back,image=g_ore)
+    elif e == 56:
+        f7.config(bg=back,image=book)
+    elif e == 57:
+        f7.config(bg=back,image=grass_g)
+    elif e == 58:
+        f7.config(bg=back,image=grass_o)
+    elif e == 59:
+        f7.config(bg=back,image=kelp)
+    elif e == 60:
+        f7.config(bg=back,image=frame)
+    elif e == 61:
+        f7.config(bg=back,image=tower)
+    elif e == 62:
+        f7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8911,6 +9883,26 @@ def update_world():
         g7.config(bg=back,image=shroom_r)
     elif e == 52:
         g7.config(bg=back,image=shroom_b)
+    elif e == 53:
+        g7.config(bg=back,image=boat_pirate)
+    elif e == 54:
+        g7.config(bg=back,image=bullet)
+    elif e == 55:
+        g7.config(bg=back,image=g_ore)
+    elif e == 56:
+        g7.config(bg=back,image=book)
+    elif e == 57:
+        g7.config(bg=back,image=grass_g)
+    elif e == 58:
+        g7.config(bg=back,image=grass_o)
+    elif e == 59:
+        g7.config(bg=back,image=kelp)
+    elif e == 60:
+        g7.config(bg=back,image=frame)
+    elif e == 61:
+        g7.config(bg=back,image=tower)
+    elif e == 62:
+        g7.config(bg=back,image=rasta)
     else:
         pass
     #another one bites the dust
@@ -8955,11 +9947,11 @@ def update_world():
 #holy shit
 def n():
     pass
-go_through = [0,3,8,9,10,20,27,28,29,31,46,49,50] #blocks the player can go through
-go_through2 = [0,3,8,9,10,20,27,28,29,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,48,49,50]
+go_through = [0,3,8,9,10,20,27,28,29,31,46,49,50,57,58,59] #blocks the player can go through
+go_through2 = [0,3,53,54,62,57,58,59,8,9,10,20,27,28,29,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,48,49,50]
 moves = 0
 pause = False
-fly = [3,10,20,27,50,49] #blocks that the gravity doesnt care about
+fly = [3,10,20,27,50,49,57,58,59] #blocks that the gravity doesnt care about
 jump = False
 gfhg = tkinter.Label(tk,bg=colour,fg="#ff00ff")
 gfhg.place(x=200,y=510)
@@ -9211,11 +10203,52 @@ def spawn_turtle():
     x = find_player_x(y)
     a = random.randint(-3,3)
     b = random.randint(-3,3)
-    if world[y+a][x+b] == 0 and find_amount_of(32) == 0 and obj_in_seen_world(32) == True:
+    if world[y+a][x+b] == 0 and find_amount_of(32) == 0:
         world[y+a][x+b] = 32
         turtle_dir = True
     gravity_for(32)
     gravity_for(32)
+def spawn_boat():
+    global prev_block
+    global world
+    remove_and_replace(53,0)
+    y = find_player_y()
+    x = find_player_x(y)
+    b = random.randint(1,3)
+    if world[y][x+b] == 0 and world[y+1][x] == 3 and find_amount_of(53) == 0:
+        world[y][x+b] = 53
+    update_world()
+def move_bullet():
+    global world
+    global wt
+    if obj_in_world(54) == True:
+        remove_and_replace(54,0)
+        y = find_y_of(54)
+        x = find_x_of(54,y)
+        if world[y][x-1] == 0:
+            world[y][x-1] = 54
+            world[y][x] = 0
+        elif world[y][x-1] == 44:
+            world[y][x] = 0
+            e = calc(5)
+            wt = wt - e
+        else:
+            world[y][x] = 0
+    update_world()
+def spawn_bullet():
+    global world
+    remove_and_replace(54,0)
+    if obj_in_world(53) == True and find_amount_of(54) == 0:
+        y = find_y_of(53)
+        x = find_x_of(53,y)
+        if world[y][x-1] == 0:
+            world[y][x-1] = 54
+            update_world()
+        x = find_x_of(54,y)
+        if world[y][x+1] == 0:
+            world[y][x] = 0
+            world[y][x+1] = 54
+    update_world()
 def spawn_skeleton(): #36/37      
  global world
  global prev_block  
@@ -9815,6 +10848,7 @@ def move_world():
         spawn_39()
         spawn_38()
         spawn_39()
+        spawn_boat()
         st += 1
         if prev_block == 3:
             st += -1
@@ -9848,6 +10882,7 @@ def move_world():
         spawn_38()
         spawn_39()
         spawn_bird()
+        spawn_bullet()
         spawn_pirate()
         st += 1
         remove_and_replace(32,0)
@@ -9862,6 +10897,8 @@ def move_world():
         remove_and_replace(45,0)
         remove_and_replace(48,0)
         remove_and_replace(48,0)
+        remove_and_replace(53,0)
+        remove_and_replace(54,0)
         if prev_block == 3:
             st += -1
     elif time % 24 == 0:
@@ -9870,6 +10907,7 @@ def move_world():
         spawn_dungeon(40)
         spawn_dungeon(45)
         spawn_dungeon(40)
+        spawn_boat()
         if prev_block == 3:
             st += -1
     elif time % 16 == 0:
@@ -9878,6 +10916,7 @@ def move_world():
         get_attacked_by(45)
         get_attacked_by(43)
         get_attacked_by(48)
+        spawn_bullet()
         get_attacked_by_41()
         if prev_block == 3:
             st += -1
@@ -9890,6 +10929,7 @@ def move_world():
         move_enemy(37)
         move_38()
         move_39()
+        spawn_bullet()
         move_enemy(40)
         move_enemy(41)
         get_attacked_by(45)
@@ -9933,6 +10973,7 @@ def move_world():
         get_attacked_by_41()
     else:
         pass
+    move_bullet()
     if prev_block == 3 and st == 0:
         wt += -1
     if food == 0 or water_ == 0:

@@ -132,10 +132,10 @@ Tower:
 Pretty imposing. Try to go fast if you want to beat it. There is good treasure if you do.
 
 Ancient temple:
-These were made by an ancient evil long ago. Their purple lanterns are the cause of the skeletons. Your task is to destroy them. 
+These were made by an ancient evil long ago. Their purple lanterns are the cause of the skeletons' aggressiveness. Your task is to destroy them. 
 Pack ladders and you may need multiple trips. 5 of these temples are fairly moderate and easy to find -
 just look for evil looking holes in the ground with ladders or water. There is lava and if you touch it you will die.
-The sixth temple is hidden and you have to mine to find it. Look around the mountain. 
+The sixth temple is hidden. Try the farthest eastern regions of the world. 
 
 
 Purple lanterns:
@@ -231,4 +231,5 @@ You can climb up stems and jump on clouds.
 SUPER UPDATE:
 Updated seas, loot tables, space, rasta skeletons, cannons, boat pirates!
 Just don't get shot by cannons from boat pirates. 
-The world just got a bit bigger!
+You can't attack the rasta skeletons because they are harmless. Boat pirates can not directly attack you or move but their few 
+weaknesses in their bones are protected by the boat, making them invulnerable. Bullets deal 5 damage.
