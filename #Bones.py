@@ -2046,7 +2046,7 @@ def update_world():
     if y > 24 and x > 900:
         back = "#040404"
     else:
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             back = "#00bbff"
         elif y > 18 and day == True and y < 51:
             back = "#8ef4ff"
@@ -10256,7 +10256,7 @@ def spawn_skeleton(): #36/37
  global day
  global level
  try:
-  if (prev_block == 3):
+  if ((prev_block == 3 or prev_block == 59 or prev_block == 58)):
     raise SyntaxError
   else:
     y = find_player_y()
@@ -10272,7 +10272,7 @@ def spawn_skeleton(): #36/37
     if y > 24 and x > 900:
         back = "#040404"
     else:
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             back = "#00bbff"
         elif y > 18 and day == True and y < 51:
             back = "#8ef4ff"
@@ -10393,7 +10393,7 @@ def spawn_39():
     x = find_player_x(y)
     c = random.randint(-3,3)
     d = random.randint(-3,3)
-    if world[y+c][x+d] == 3 and prev_block == 3 and find_amount_of(39) == 0:
+    if world[y+c][x+d] == 3 and (prev_block == 3 or prev_block == 59 or prev_block == 58) and find_amount_of(39) == 0:
         world[y+c][x+d] = 39
         gravity_for(39)
         skeleton_l2_hp = 10
@@ -10851,7 +10851,7 @@ def move_world():
         spawn_39()
         spawn_boat()
         st += 1
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 64 == 0:
         spawn_fish(43)
@@ -10900,7 +10900,7 @@ def move_world():
         remove_and_replace(48,0)
         remove_and_replace(53,0)
         remove_and_replace(54,0)
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 24 == 0:
         spawn_skeleton()
@@ -10909,7 +10909,7 @@ def move_world():
         spawn_dungeon(45)
         spawn_dungeon(40)
         spawn_boat()
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 16 == 0:
         spawn_turtle()
@@ -10919,7 +10919,7 @@ def move_world():
         get_attacked_by(48)
         spawn_bullet()
         get_attacked_by_41()
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 8 == 0:
         move_turtle()
@@ -10937,7 +10937,7 @@ def move_world():
         get_attacked_by(43)
         get_attacked_by(48)
         get_attacked_by_41()
-        if prev_block == 3:
+        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 4 == 0:
         move_fish()
@@ -10975,7 +10975,7 @@ def move_world():
     else:
         pass
     move_bullet()
-    if prev_block == 3 and st == 0:
+    if (prev_block == 3 or prev_block == 59 or prev_block == 58) and st == 0:
         wt += -1
     if food == 0 or water_ == 0:
         wt += -1
