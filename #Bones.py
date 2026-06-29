@@ -348,6 +348,15 @@ def block_(event):
     tk.after(1000,ee)
 bnnc = tkinter.Button(tk,bg=colour,fg="#ffffff",text="Block",command=lambda:block_(0))
 bnnc.place(x=112,y=612)
+def down_(obj):
+    global world
+    y = find_y_of(obj)
+    x = find_x_of(obj,y)
+    if obj_in_world(obj) == True and world[y+1][x] == 0:
+        y = find_y_of(obj)
+        x = find_x_of(obj,y)
+        world[y][x] = 0
+        world[y+1][x] = obj
 def gravity_for(obj):
  global world
  if obj_in_world(obj) == True:
@@ -10154,15 +10163,6 @@ skeleton_p_hp = 16
 boar1_hp = 4
 boar2_hp = 4
 cube_hp = 32
-def down_(obj):
-    global world
-    y = find_y_of(obj)
-    x = find_x_of(obj,y)
-    if obj_in_world(obj) == True and world[y+1][x] == 0:
-        y = find_y_of(obj)
-        x = find_x_of(obj,y)
-        world[y][x] = 0
-        world[y+1][x] = obj
 #-----------------------------------#
 def spawn_fish(fih): #35 or 43
     global prev_block
