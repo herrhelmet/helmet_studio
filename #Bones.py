@@ -9956,7 +9956,7 @@ def update_world():
 #holy shit
 def n():
     pass
-go_through = [0,3,8,9,10,20,27,28,29,31,46,49,50,57,58,59] #blocks the player can go through
+go_through = [0,3,53,54,62,57,58,59,8,9,10,20,27,28,29,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,48,49,50] #blocks the player can go through
 go_through2 = [0,3,53,54,62,57,58,59,8,9,10,20,27,28,29,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,48,49,50]
 moves = 0
 pause = False
