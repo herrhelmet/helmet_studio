@@ -10516,30 +10516,9 @@ def move_39():
             if world[y][x+1] == 3:
                 world[y][x+1] = 39
                 world[y][x] = 3
-            else:
-                if world[y-1][x] == 3:
-                    world[y-1][x] = 39
-                    world[y][x] = 3
-                    if world[y][x+1] == 3:
-                        world[y][x+1] = 39
-                        world[y][x] = 3
         elif x > x2:
             if world[y][x-1] == 3:
                 world[y][x-1] = 39
-                world[y][x] = 3
-                if world[y-1][x] == 3:
-                    world[y-1][x] = 39
-                    world[y][x] = 3
-                    if world[y][x-1] == 3:
-                        world[y][x-1] = 39
-                        world[y][x] = 3
-        elif y > y2:
-            if world[y-1][x] == 3:
-                world[y-1][x] = 39
-                world[y][x] = 3
-        elif y < y2:
-            if world[y+1][x] == 3:
-                world[y+1][x] = 39
                 world[y][x] = 3
         else:
             pass #?
@@ -10557,32 +10536,10 @@ def move_38():
             if world[y][x+1] == 27:
                 world[y][x+1] = 38
                 world[y][x] = 27
-            else:
-                if world[y-1][x] == 27:
-                    world[y-1][x] = 38
-                    world[y][x] = 27
-                    if world[y][x+1] == 27:
-                        world[y][x+1] = 38
-                        world[y][x] = 27
         elif x > x2:
             if world[y][x-1] == 27:
                 world[y][x-1] = 38
-                world[y][x] = 27
-                if world[y-1][x] == 27:
-                    world[y-1][x] = 38
-                    world[y][x] = 27
-                    if world[y][x-1] == 27:
-                        world[y][x-1] = 38
-                        world[y][x] = 27
-        elif y > y2:
-            if world[y-1][x] == 27:
-                world[y-1][x] = 38
-                world[y][x] = 27
-        elif y < y2:
-            if world[y+1][x] == 27:
-                world[y+1][x] = 38
-                world[y][x] = 27
-        else:
+                world[y][x] = 27        
             pass #?
         gravity_for(38)
 def move_enemy(enemy):
