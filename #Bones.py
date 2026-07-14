@@ -2043,11 +2043,11 @@ def update_world():
         weeb.config(text="x")
     else:
         weeb.config(text="o")
-    if y > 24 and x > 900:
-        back = "#040404"
+    if (prev_block == 3 or prev_block == 59 or prev_block == 58):
+        back = "#00bbff"
     else:
-        if (prev_block == 3 or prev_block == 59 or prev_block == 58):
-            back = "#00bbff"
+        if y > 24 and x > 900:
+            back = "#040404"
         elif y > 18 and day == True and y < 51:
             back = "#8ef4ff"
         else:
