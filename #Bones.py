@@ -305,6 +305,9 @@ def use_item(event):
     elif e == 28:
         rh = 0
         prev_block = 20
+    elif e == 32:
+        rh = 0
+        wt += 2
     else:
         pass
     update_world()

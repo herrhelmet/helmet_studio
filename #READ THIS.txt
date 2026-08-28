@@ -263,5 +263,13 @@ You can now store items!  While holding leather armour, press "place storage" wi
 can jump to exit storage or you can click the storage again. Click "empty storage" to empty it and press "store item" to store the item in your right hand.
 You can not move left or right while in storage. Do not try to store too many items or you will just end up dropping the item.
 
-There is a new herb! It is a one hit wonder.    And, all the chests have a mouse infestation problem. The mouse has no use, it just likes your inventory.
+There is a new herb! It is a one hit wonder.    And, all the chests have a mouse infestation problem. The mouse likes your inventory and he might give you a benefit.
 
+
+CREDITS:
+Programming - Nick
+Game concept - Nick
+Textures - Nick and Joe
+Moral support and guidance - Joe
+
+Signed: +++ nick.  Thank you.
