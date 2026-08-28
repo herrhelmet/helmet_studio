@@ -1,4 +1,10 @@
 #WELCOME TO BONES
+#this is bones.py
+#UPDATE LOG
+#Base game
+#Mushroom update
+#Ocean update
+#Mini update
 name = "world_real.txt"
 file = open(name,"r")
 world = file.read()
@@ -10,11 +16,12 @@ for i in range(len(world)):
         world[i][j] = int(world[i][j])
 file.close()
 import tkinter
+import math
 import time
 from tkinter.constants import *
 tk = tkinter.Tk()
 tk.title("Bones")
-tk.geometry("465x645+100+100")
+tk.geometry("465x675+100+80")
 colour = "#250750"
 tk.config(bg=colour)
 #x = tkinter.Button(tk,text="x",command=tk.destroy,fg="#ff0000")
@@ -66,6 +73,7 @@ craft = False
 level = 0
 trade = True
 rh = 0 #just putting it here too
+stor = False #can we store items?
 import random
 de = tkinter.Label(tk,bg=colour,fg="#ffffff",text="Defence:")
 so = tkinter.Label(tk,bg=colour,fg="#ffffff",text="Soak:")
@@ -108,6 +116,7 @@ def attack(enemy):
     global cube_hp
     global skeleton_i_hp
     global skeleton_p_hp
+    global rh
     y = find_player_y()
     global world
     if enemy == 32:
@@ -130,8 +139,7 @@ def attack(enemy):
             x2 = find_x_of(33,y2)
             world[y2][x2] = 0
             a = random.randint(1,2)
-            global ar
-            if a == 1 and ar == 0:
+            if a == 1:
                 add(5)
     #-----------------------#
     elif enemy == 34:
@@ -226,6 +234,8 @@ def attack(enemy):
     #-----------------------#
     else:
         pass
+    if rh == 31:
+        rh = 0
 def drop(event):
     global rh
     rh = 0
@@ -236,8 +246,29 @@ def use_item(event):
     global food
     global water_
     global prev_block
+    global lh
+    global ar
     e = rh
-    if e == 19:
+    if e == 14 or e == 15:
+        e = e - 13
+        temp = e  #e is 1 or 2
+        temp_ = lh  #temporary variable 2 is lh
+        if lh == 1:
+            temp_ = 14  #+13 to lh, readying for adding to rh
+        elif lh == 2:
+            temp_ = 15
+        else:
+            pass
+        lh = temp
+        rh = temp_
+    elif e == 5 or e == 6 or e == 7 or e == 8 or e == 29:
+        if not e == 29:
+            e = e - 4
+        else:
+            e = 5
+        ar = e
+        rh = 0
+    elif e == 19:
         rh = 0
         food += 5
         water_ += 2
@@ -292,33 +323,13 @@ def put_to_hand(slot):
     global lh
     global ar
     e = inventory[slot]
-    if e == 14 or e == 15:
-        e = e - 13
-        temp = e
-        temp_ = lh
-        if lh == 1:
-            temp_ = 14
-        elif lh == 2:
-            temp_ = 15
-        else:
-            pass
-        lh = temp
-        inventory[slot] = temp_
-    elif e == 5 or e == 6 or e == 7 or e == 8 or e == 29:
-        if not e == 29:
-            e = e - 4
-        else:
-            e = 5
-        ar = e
+    temp = e
+    temp_ = rh
+    rh = temp
+    if e == 0:
         del inventory[slot]
     else:
-        temp = e
-        temp_ = rh
-        rh = temp
-        if e == 0:
-            del inventory[slot]
-        else:
-            inventory[slot] = temp_
+        inventory[slot] = temp_
   except:
       pass
   finally:
@@ -369,10 +380,11 @@ def gravity_for(obj):
 def interact(x,y):
   global rh
   global st
+  global stor
   axes = [1,2,3,4,30]
-  loot1 = [26,26,26,26,27,27,25,16,16]
-  loot2 = [2,2,2,6,6,6,13,13,13]
-  loot3 = [18,18,18,18,22,22,22,28,28]
+  loot1 = [26,26,26,27,27,27,31,31,31,25,25]
+  loot2 = [1,1,2,5,5,6,13,13,13,16,16,16]
+  loot3 = [18,18,18,18,22,22,22,28,28,20]
   global world
   global day
   global boat_
@@ -385,9 +397,11 @@ def interact(x,y):
   global prev_block
   global trade
   global craft
+  global storage
   if place == 48:
       world[a][b] = 0
   if not(st == 0):
+   try:
     if place == 0:
         pass
     elif place == 1 and rh == 13:
@@ -432,9 +446,10 @@ def interact(x,y):
     elif place == 30:
         world[a][b] = 2
         add(18)
-        add(loot1[random.randint(0,8)])
-        add(loot2[random.randint(0,8)])
-        add(loot3[random.randint(0,8)])
+        add(loot1[random.randint(0,10)])
+        add(loot2[random.randint(0,11)])
+        add(loot3[random.randint(0,9)])
+        add(32)
         st += -1
     elif place == 26:
         craft = True
@@ -468,9 +483,22 @@ def interact(x,y):
     elif place == 55:
         world[a][b] = 0
         add(18)
+    elif place == 63:
+        world[a][b] = 27
+    elif place == 64:
+        world[a][b] = 3
     else:
         pass
-    update_world()
+   except:
+    if world[a][b] == world[y2+1][x2]:
+      if stor == False:
+        storage = world[a][b]
+        stor = True
+      elif stor == True:
+        world[y+2][x] = storage
+        storage = [0,0,0,0,0]
+        stor = False
+  update_world()
 #-------------    
 blank = tkinter.PhotoImage(file="blank.png") #0      i0  
 stone = tkinter.PhotoImage(file="stone.png") #1   
@@ -554,6 +582,7 @@ kelp = tkinter.PhotoImage(file="kelp.png") #59
 frame = tkinter.PhotoImage(file="iron_frame.png") #60
 tower = tkinter.PhotoImage(file="space_tower.png") #61
 rasta = tkinter.PhotoImage(file="rasta_skeleton.png") #62
+skeleton_space = tkinter.PhotoImage(file="skeleton_space.png") #63/64
 #blank = i0
 w_axe = tkinter.PhotoImage(file="wood_axe.png") #i1
 b_axe = tkinter.PhotoImage(file="bone_axe.png") #i2
@@ -585,6 +614,8 @@ herb_ko = tkinter.PhotoImage(file="herb_ko.png") #i27
 #ladder = i28
 d_armour = tkinter.PhotoImage(file="diamond_helmet.png") #i29
 d_axe = tkinter.PhotoImage(file="diamond_axe.png") #i30
+herb_wham = tkinter.PhotoImage(file="herb_wham.png") #i31
+mouse = tkinter.PhotoImage(file="mouse.png") #i32
 #suck my balls
 a1 = tkinter.Label(tk)
 a1.place(x=20,y=20,width=60,height=60)
@@ -722,13 +753,31 @@ i13.place(x=380,y=470,width=30,height=30)
 i14 = tkinter.Button(tk,bg=colour,command=lambda:put_to_hand(13))
 i14.place(x=410,y=470,width=30,height=30)
 #
+def t():
+    breakpoint()
 def oof():
     global lh
-    lh = 0
-    update_world()
+    global inventory
+    e = lh
+    if e == 1 or e == 2:
+        e = e + 13
+        if len(inventory) < 14:
+           lh = 0
+           add(e)
+        update_world()
 def oof2():
     global ar
-    ar = 0
+    global inventory
+    e = ar
+    if e == 1 or e == 2 or e == 3 or e == 4 or e == 5:
+        if e == 5:
+            e = 29
+        else:
+            e = e + 4
+        if len(inventory) < 14:
+           ar = 0
+           add(e)
+        #update_world()
     update_world()
 lha = tkinter.Button(tk,bg=colour,command=oof)
 lha.place(x=20,y=520,width=30,height=30)
@@ -738,6 +787,66 @@ arm = tkinter.Button(tk,bg=colour,command=oof2)
 arm.place(x=80,y=520,width=30,height=30)
 lab = tkinter.Label(tk,bg=colour,fg="#ffffff",text="Left Hand    Armour    Right Hand")
 lab.place(x=5,y=500,height=16)
+#------------------#
+def plac():
+    global world
+    global rh
+    y = find_player_y()
+    x = find_player_x(y)
+    if rh == 5 and (world[y+1][x] == 0 or world[y+1][x] == 3 or world[y+1][x] == 27):
+        world[y+1][x] = [0,0,0,0,0]
+        rh = 0
+    update_world()
+def s_add(item,loot):
+    for i in range(len(loot)):
+        if loot[i] == 0:
+            loot[i] = item
+            break
+        else:
+            pass
+def store_():
+    global storage
+    global stor
+    global rh
+    if stor == True:
+        s_add(rh,storage)
+        rh = 0
+        update_world()
+def empt():
+  global storage
+  global stor
+  global world
+  global inventory
+  if stor == True:
+    y = find_player_y()
+    x = find_player_x(y)
+    for i in range(5):
+        j = i #was i - 4
+        e = storage[j]
+        if len(inventory) < 14:
+            storage[j] = 0
+            add(e)
+  update_world()
+#------------------#
+sto=tkinter.Button(tk,bg=colour,fg="#ffffff",text="Store item",command=store_)
+sto.place(x=20,y=645)
+pls=tkinter.Button(tk,bg=colour,fg="#ffffff",text="Place storage",command=plac)
+pls.place(x=294,y=644)
+emp=tkinter.Button(tk,bg=colour,fg="#ffffff",text="Empty storage",command=empt)
+emp.place(x=377,y=644)
+plk=tkinter.Label(tk,bg=colour,fg="#ffffff",text="Storage:")
+plk.place(x=90,y=647)
+s1=tkinter.Button(tk,bg=colour)
+s1.place(x=140,y=641,width=30,height=30)
+s2=tkinter.Button(tk,bg=colour)
+s2.place(x=170,y=641,width=30,height=30)
+s3=tkinter.Button(tk,bg=colour)
+s3.place(x=200,y=641,width=30,height=30)
+s4=tkinter.Button(tk,bg=colour)
+s4.place(x=230,y=641,width=30,height=30)
+s5=tkinter.Button(tk,bg=colour)
+s5.place(x=260,y=641,width=30,height=30)
+storage = [0,0,0,0,0]
 #oh shit
 lh = 0
 rh = 0
@@ -755,6 +864,7 @@ def update_inventory():
           pass
       finally:
           i += 1
+    global storage
     global lh
     global rh
     global ar
@@ -782,7 +892,9 @@ def update_inventory():
         def_ = 2
     else:
         def_ = 0
-    if rh == 30 or rh == 17:
+    if rh == 31:
+        dam = 15
+    elif rh == 30 or rh == 17:
         dam = 9
     elif rh == 4:
         dam = 8
@@ -876,6 +988,10 @@ def update_inventory():
         rha.config(image=d_armour)
     elif rh == 30:
         rha.config(image=d_axe)
+    elif rh == 31:
+        rha.config(image=herb_wham)
+    elif rh == 32:
+        rha.config(image=mouse)
     else:
         pass
     da.config(text=f"Damage: {dam}")
@@ -885,7 +1001,357 @@ def update_inventory():
     wa.config(text=f"Water: {water_}")
     sT.config(text=f"ST: {st}")
     wT.config(text=f"WT: {wt}")
-    #reee
+    #
+    e = storage[0]	
+    if e == 0:
+        s1.config(image=blank)
+    elif e == 1:
+        s1.config(image=w_axe)
+    elif e == 2:
+        s1.config(image=b_axe)
+    elif e == 3:
+        s1.config(image=c_axe)
+    elif e == 4:
+        s1.config(image=i_axe)
+    elif e == 5:
+        s1.config(image=l_armour)
+    elif e == 6:
+        s1.config(image=b_armour)
+    elif e == 7:
+        s1.config(image=c_armour)
+    elif e == 8:
+        s1.config(image=i_armour)
+    elif e == 9:
+        s1.config(image=stick)
+    elif e == 10:
+        s1.config(image=bone)
+    elif e == 11:
+        s1.config(image=copper)
+    elif e == 12:
+        s1.config(image=iron)
+    elif e == 13:
+        s1.config(image=pickaxe)
+    elif e == 14:
+        s1.config(image=c_shield)
+    elif e == 15:
+        s1.config(image=i_shield)
+    elif e == 16:
+        s1.config(image=bucket)
+    elif e == 17:
+        s1.config(image=cutlass)
+    elif e == 18:
+        s1.config(image=dbloon)
+    elif e == 19:
+        s1.config(image=fish)
+    elif e == 20:
+        s1.config(image=bread)
+    elif e == 21:
+        s1.config(image=spud)
+    elif e == 22:
+        s1.config(image=empty_pouch)
+    elif e == 23:
+        s1.config(image=full_pouch)
+    elif e == 24:
+        s1.config(image=berries)
+    elif e == 25:
+        s1.config(image=herb_heal)
+    elif e == 26:
+        s1.config(image=herb_st)
+    elif e == 27:
+        s1.config(image=herb_ko)
+    elif e == 28:
+        s1.config(image=ladder)
+    elif e == 29:
+        s1.config(image=d_armour)
+    elif e == 30:
+        s1.config(image=d_axe)
+    elif e == 31:
+        s1.config(image=herb_wham)
+    elif e == 32:
+        s1.config(image=mouse)
+    else:
+        pass
+    #--#
+    e = storage[1]	
+    if e == 0:
+        s2.config(image=blank)
+    elif e == 1:
+        s2.config(image=w_axe)
+    elif e == 2:
+        s2.config(image=b_axe)
+    elif e == 3:
+        s2.config(image=c_axe)
+    elif e == 4:
+        s2.config(image=i_axe)
+    elif e == 5:
+        s2.config(image=l_armour)
+    elif e == 6:
+        s2.config(image=b_armour)
+    elif e == 7:
+        s2.config(image=c_armour)
+    elif e == 8:
+        s2.config(image=i_armour)
+    elif e == 9:
+        s2.config(image=stick)
+    elif e == 10:
+        s2.config(image=bone)
+    elif e == 11:
+        s2.config(image=copper)
+    elif e == 12:
+        s2.config(image=iron)
+    elif e == 13:
+        s2.config(image=pickaxe)
+    elif e == 14:
+        s2.config(image=c_shield)
+    elif e == 15:
+        s2.config(image=i_shield)
+    elif e == 16:
+        s2.config(image=bucket)
+    elif e == 17:
+        s2.config(image=cutlass)
+    elif e == 18:
+        s2.config(image=dbloon)
+    elif e == 19:
+        s2.config(image=fish)
+    elif e == 20:
+        s2.config(image=bread)
+    elif e == 21:
+        s2.config(image=spud)
+    elif e == 22:
+        s2.config(image=empty_pouch)
+    elif e == 23:
+        s2.config(image=full_pouch)
+    elif e == 24:
+        s2.config(image=berries)
+    elif e == 25:
+        s2.config(image=herb_heal)
+    elif e == 26:
+        s2.config(image=herb_st)
+    elif e == 27:
+        s2.config(image=herb_ko)
+    elif e == 28:
+        s2.config(image=ladder)
+    elif e == 29:
+        s2.config(image=d_armour)
+    elif e == 30:
+        s2.config(image=d_axe)
+    elif e == 31:
+        s2.config(image=herb_wham)
+    elif e == 32:
+        s2.config(image=mouse)
+    else:
+        pass
+    #--#
+    e = storage[2]	
+    if e == 0:
+        s3.config(image=blank)
+    elif e == 1:
+        s3.config(image=w_axe)
+    elif e == 2:
+        s3.config(image=b_axe)
+    elif e == 3:
+        s3.config(image=c_axe)
+    elif e == 4:
+        s3.config(image=i_axe)
+    elif e == 5:
+        s3.config(image=l_armour)
+    elif e == 6:
+        s3.config(image=b_armour)
+    elif e == 7:
+        s3.config(image=c_armour)
+    elif e == 8:
+        s3.config(image=i_armour)
+    elif e == 9:
+        s3.config(image=stick)
+    elif e == 10:
+        s3.config(image=bone)
+    elif e == 11:
+        s3.config(image=copper)
+    elif e == 12:
+        s3.config(image=iron)
+    elif e == 13:
+        s3.config(image=pickaxe)
+    elif e == 14:
+        s3.config(image=c_shield)
+    elif e == 15:
+        s3.config(image=i_shield)
+    elif e == 16:
+        s3.config(image=bucket)
+    elif e == 17:
+        s3.config(image=cutlass)
+    elif e == 18:
+        s3.config(image=dbloon)
+    elif e == 19:
+        s3.config(image=fish)
+    elif e == 20:
+        s3.config(image=bread)
+    elif e == 21:
+        s3.config(image=spud)
+    elif e == 22:
+        s3.config(image=empty_pouch)
+    elif e == 23:
+        s3.config(image=full_pouch)
+    elif e == 24:
+        s3.config(image=berries)
+    elif e == 25:
+        s3.config(image=herb_heal)
+    elif e == 26:
+        s3.config(image=herb_st)
+    elif e == 27:
+        s3.config(image=herb_ko)
+    elif e == 28:
+        s3.config(image=ladder)
+    elif e == 29:
+        s3.config(image=d_armour)
+    elif e == 30:
+        s3.config(image=d_axe)
+    elif e == 31:
+        s3.config(image=herb_wham)
+    elif e == 32:
+        s3.config(image=mouse)
+    else:
+        pass
+    #--#
+    e = storage[3]	
+    if e == 0:
+        s4.config(image=blank)
+    elif e == 1:
+        s4.config(image=w_axe)
+    elif e == 2:
+        s4.config(image=b_axe)
+    elif e == 3:
+        s4.config(image=c_axe)
+    elif e == 4:
+        s4.config(image=i_axe)
+    elif e == 5:
+        s4.config(image=l_armour)
+    elif e == 6:
+        s4.config(image=b_armour)
+    elif e == 7:
+        s4.config(image=c_armour)
+    elif e == 8:
+        s4.config(image=i_armour)
+    elif e == 9:
+        s4.config(image=stick)
+    elif e == 10:
+        s4.config(image=bone)
+    elif e == 11:
+        s4.config(image=copper)
+    elif e == 12:
+        s4.config(image=iron)
+    elif e == 13:
+        s4.config(image=pickaxe)
+    elif e == 14:
+        s4.config(image=c_shield)
+    elif e == 15:
+        s4.config(image=i_shield)
+    elif e == 16:
+        s4.config(image=bucket)
+    elif e == 17:
+        s4.config(image=cutlass)
+    elif e == 18:
+        s4.config(image=dbloon)
+    elif e == 19:
+        s4.config(image=fish)
+    elif e == 20:
+        s4.config(image=bread)
+    elif e == 21:
+        s4.config(image=spud)
+    elif e == 22:
+        s4.config(image=empty_pouch)
+    elif e == 23:
+        s4.config(image=full_pouch)
+    elif e == 24:
+        s4.config(image=berries)
+    elif e == 25:
+        s4.config(image=herb_heal)
+    elif e == 26:
+        s4.config(image=herb_st)
+    elif e == 27:
+        s4.config(image=herb_ko)
+    elif e == 28:
+        s4.config(image=ladder)
+    elif e == 29:
+        s4.config(image=d_armour)
+    elif e == 30:
+        s4.config(image=d_axe)
+    elif e == 31:
+        s4.config(image=herb_wham)
+    elif e == 32:
+        s4.config(image=mouse)
+    else:
+        pass
+    #--#
+    e = storage[4]	
+    if e == 0:
+        s5.config(image=blank)
+    elif e == 1:
+        s5.config(image=w_axe)
+    elif e == 2:
+        s5.config(image=b_axe)
+    elif e == 3:
+        s5.config(image=c_axe)
+    elif e == 4:
+        s5.config(image=i_axe)
+    elif e == 5:
+        s5.config(image=l_armour)
+    elif e == 6:
+        s5.config(image=b_armour)
+    elif e == 7:
+        s5.config(image=c_armour)
+    elif e == 8:
+        s5.config(image=i_armour)
+    elif e == 9:
+        s5.config(image=stick)
+    elif e == 10:
+        s5.config(image=bone)
+    elif e == 11:
+        s5.config(image=copper)
+    elif e == 12:
+        s5.config(image=iron)
+    elif e == 13:
+        s5.config(image=pickaxe)
+    elif e == 14:
+        s5.config(image=c_shield)
+    elif e == 15:
+        s5.config(image=i_shield)
+    elif e == 16:
+        s5.config(image=bucket)
+    elif e == 17:
+        s5.config(image=cutlass)
+    elif e == 18:
+        s5.config(image=dbloon)
+    elif e == 19:
+        s5.config(image=fish)
+    elif e == 20:
+        s5.config(image=bread)
+    elif e == 21:
+        s5.config(image=spud)
+    elif e == 22:
+        s5.config(image=empty_pouch)
+    elif e == 23:
+        s5.config(image=full_pouch)
+    elif e == 24:
+        s5.config(image=berries)
+    elif e == 25:
+        s5.config(image=herb_heal)
+    elif e == 26:
+        s5.config(image=herb_st)
+    elif e == 27:
+        s5.config(image=herb_ko)
+    elif e == 28:
+        s5.config(image=ladder)
+    elif e == 29:
+        s5.config(image=d_armour)
+    elif e == 30:
+        s5.config(image=d_axe)
+    elif e == 31:
+        s5.config(image=herb_wham)
+    elif e == 32:
+        s5.config(image=mouse)
+    else:
+        pass
+    #--#
     try:
         e = inventory[0]
     except:
@@ -953,6 +1419,10 @@ def update_inventory():
             i1.config(image=d_armour)
         elif e == 30:
             i1.config(image=d_axe)
+        elif e == 31:
+            i1.config(image=herb_wham)
+        elif e == 32:
+            i1.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1023,6 +1493,10 @@ def update_inventory():
             i2.config(image=d_armour)
         elif e == 30:
             i2.config(image=d_axe)
+        elif e == 31:
+            i2.config(image=herb_wham)
+        elif e == 32:
+            i2.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1093,6 +1567,10 @@ def update_inventory():
             i3.config(image=d_armour)
         elif e == 30:
             i3.config(image=d_axe)
+        elif e == 31:
+            i3.config(image=herb_wham)
+        elif e == 32:
+            i3.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1163,6 +1641,10 @@ def update_inventory():
             i4.config(image=d_armour)
         elif e == 30:
             i4.config(image=d_axe)
+        elif e == 31:
+            i4.config(image=herb_wham)
+        elif e == 32:
+            i4.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1233,6 +1715,10 @@ def update_inventory():
             i5.config(image=d_armour)
         elif e == 30:
             i5.config(image=d_axe)
+        elif e == 31:
+            i5.config(image=herb_wham)
+        elif e == 32:
+            i5.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1303,6 +1789,10 @@ def update_inventory():
             i6.config(image=d_armour)
         elif e == 30:
             i6.config(image=d_axe)
+        elif e == 31:
+            i6.config(image=herb_wham)
+        elif e == 32:
+            i6.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1373,6 +1863,10 @@ def update_inventory():
             i7.config(image=d_armour)
         elif e == 30:
             i7.config(image=d_axe)
+        elif e == 31:
+            i7.config(image=herb_wham)
+        elif e == 32:
+            i7.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1443,6 +1937,10 @@ def update_inventory():
             i8.config(image=d_armour)
         elif e == 30:
             i8.config(image=d_axe)
+        elif e == 31:
+            i8.config(image=herb_wham)
+        elif e == 32:
+            i8.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1513,6 +2011,10 @@ def update_inventory():
             i9.config(image=d_armour)
         elif e == 30:
             i9.config(image=d_axe)
+        elif e == 31:
+            i9.config(image=herb_wham)
+        elif e == 32:
+            i9.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1583,6 +2085,10 @@ def update_inventory():
             i10.config(image=d_armour)
         elif e == 30:
             i10.config(image=d_axe)
+        elif e == 31:
+            i10.config(image=herb_wham)
+        elif e == 32:
+            i10.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1653,6 +2159,10 @@ def update_inventory():
             i11.config(image=d_armour)
         elif e == 30:
             i11.config(image=d_axe)
+        elif e == 31:
+            i11.config(image=herb_wham)
+        elif e == 32:
+            i11.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1723,6 +2233,10 @@ def update_inventory():
             i12.config(image=d_armour)
         elif e == 30:
             i12.config(image=d_axe)
+        elif e == 31:
+            i12.config(image=herb_wham)
+        elif e == 32:
+            i12.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1793,6 +2307,10 @@ def update_inventory():
             i13.config(image=d_armour)
         elif e == 30:
             i13.config(image=d_axe)
+        elif e == 31:
+            i13.config(image=herb_wham)
+        elif e == 32:
+            i13.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -1863,6 +2381,10 @@ def update_inventory():
             i14.config(image=d_armour)
         elif e == 30:
             i14.config(image=d_axe)
+        elif e == 31:
+            i14.config(image=herb_wham)
+        elif e == 32:
+            i14.config(image=mouse)
         else:
             pass
     #oh jesus
@@ -2225,8 +2747,10 @@ def update_world():
         a1.config(bg=back,image=tower)
     elif e == 62:
         a1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a1.config(image=skeleton_space)
     else:
-        pass
+        a1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][1]
     if e == 0:
@@ -2385,8 +2909,10 @@ def update_world():
         b1.config(bg=back,image=tower)
     elif e == 62:
         b1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b1.config(image=skeleton_space)
     else:
-        pass
+        b1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][2]
     if e == 0:
@@ -2545,8 +3071,10 @@ def update_world():
         c1.config(bg=back,image=tower)
     elif e == 62:
         c1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c1.config(image=skeleton_space)
     else:
-        pass
+        c1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][3]
     if e == 0:
@@ -2705,8 +3233,10 @@ def update_world():
         d1.config(bg=back,image=tower)
     elif e == 62:
         d1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d1.config(image=skeleton_space)
     else:
-        pass
+        d1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][4]
     if e == 0:
@@ -2865,8 +3395,10 @@ def update_world():
         e1.config(bg=back,image=tower)
     elif e == 62:
         e1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e1.config(image=skeleton_space)
     else:
-        pass
+        e1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][5]
     if e == 0:
@@ -3025,8 +3557,10 @@ def update_world():
         f1.config(bg=back,image=tower)
     elif e == 62:
         f1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f1.config(image=skeleton_space)
     else:
-        pass
+        f1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[0][6]
     if e == 0:
@@ -3185,8 +3719,10 @@ def update_world():
         g1.config(bg=back,image=tower)
     elif e == 62:
         g1.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g1.config(image=skeleton_space)
     else:
-        pass
+        g1.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][0]
     if e == 0:
@@ -3345,8 +3881,10 @@ def update_world():
         a2.config(bg=back,image=tower)
     elif e == 62:
         a2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a2.config(image=skeleton_space)
     else:
-        pass
+        a2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][1]
     if e == 0:
@@ -3505,8 +4043,10 @@ def update_world():
         b2.config(bg=back,image=tower)
     elif e == 62:
         b2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b2.config(image=skeleton_space)
     else:
-        pass
+        b2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][2]
     if e == 0:
@@ -3665,8 +4205,10 @@ def update_world():
         c2.config(bg=back,image=tower)
     elif e == 62:
         c2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c2.config(image=skeleton_space)
     else:
-        pass
+        c2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][3]
     if e == 0:
@@ -3825,8 +4367,10 @@ def update_world():
         d2.config(bg=back,image=tower)
     elif e == 62:
         d2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d2.config(image=skeleton_space)
     else:
-        pass
+        d2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][4]
     if e == 0:
@@ -3985,8 +4529,10 @@ def update_world():
         e2.config(bg=back,image=tower)
     elif e == 62:
         e2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e2.config(image=skeleton_space)
     else:
-        pass
+        e2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][5]
     if e == 0:
@@ -4145,8 +4691,10 @@ def update_world():
         f2.config(bg=back,image=tower)
     elif e == 62:
         f2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f2.config(image=skeleton_space)
     else:
-        pass
+        f2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[1][6]
     if e == 0:
@@ -4305,8 +4853,10 @@ def update_world():
         g2.config(bg=back,image=tower)
     elif e == 62:
         g2.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g2.config(image=skeleton_space)
     else:
-        pass
+        g2.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][0]
     if e == 0:
@@ -4465,8 +5015,10 @@ def update_world():
         a3.config(bg=back,image=tower)
     elif e == 62:
         a3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a3.config(image=skeleton_space)
     else:
-        pass
+        a3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][1]
     if e == 0:
@@ -4625,8 +5177,10 @@ def update_world():
         b3.config(bg=back,image=tower)
     elif e == 62:
         b3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b3.config(image=skeleton_space)
     else:
-        pass
+        b3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][2]
     if e == 0:
@@ -4785,8 +5339,10 @@ def update_world():
         c3.config(bg=back,image=tower)
     elif e == 62:
         c3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c3.config(image=skeleton_space)
     else:
-        pass
+        c3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][3]
     if e == 0:
@@ -4945,8 +5501,10 @@ def update_world():
         d3.config(bg=back,image=tower)
     elif e == 62:
         d3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d3.config(image=skeleton_space)
     else:
-        pass
+        d3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][4]
     if e == 0:
@@ -5105,8 +5663,10 @@ def update_world():
         e3.config(bg=back,image=tower)
     elif e == 62:
         e3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e3.config(image=skeleton_space)
     else:
-        pass
+        e3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][5]
     if e == 0:
@@ -5265,8 +5825,10 @@ def update_world():
         f3.config(bg=back,image=tower)
     elif e == 62:
         f3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f3.config(image=skeleton_space)
     else:
-        pass
+        f3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[2][6]
     if e == 0:
@@ -5425,8 +5987,10 @@ def update_world():
         g3.config(bg=back,image=tower)
     elif e == 62:
         g3.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g3.config(image=skeleton_space)
     else:
-        pass
+        g3.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][0]
     if e == 0:
@@ -5585,8 +6149,10 @@ def update_world():
         a4.config(bg=back,image=tower)
     elif e == 62:
         a4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a4.config(image=skeleton_space)
     else:
-        pass
+        a4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][1]
     if e == 0:
@@ -5745,8 +6311,10 @@ def update_world():
         b4.config(bg=back,image=tower)
     elif e == 62:
         b4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b4.config(image=skeleton_space)
     else:
-        pass
+        b4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][2]
     if e == 0:
@@ -5905,8 +6473,10 @@ def update_world():
         c4.config(bg=back,image=tower)
     elif e == 62:
         c4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c4.config(image=skeleton_space)
     else:
-        pass
+        c4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][3]
     if e == 0:
@@ -6072,8 +6642,10 @@ def update_world():
         d4.config(bg=back,image=tower)
     elif e == 62:
         d4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d4.config(image=skeleton_space)
     else:
-        pass
+        d4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][4]
     if e == 0:
@@ -6232,8 +6804,10 @@ def update_world():
         e4.config(bg=back,image=tower)
     elif e == 62:
         e4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e4.config(image=skeleton_space)
     else:
-        pass
+        e4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][5]
     if e == 0:
@@ -6392,8 +6966,10 @@ def update_world():
         f4.config(bg=back,image=tower)
     elif e == 62:
         f4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f4.config(image=skeleton_space)
     else:
-        pass
+        f4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[3][6]
     if e == 0:
@@ -6552,8 +7128,10 @@ def update_world():
         g4.config(bg=back,image=tower)
     elif e == 62:
         g4.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g4.config(image=skeleton_space)
     else:
-        pass
+        g4.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][0]
     if e == 0:
@@ -6712,8 +7290,10 @@ def update_world():
         a5.config(bg=back,image=tower)
     elif e == 62:
         a5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a5.config(image=skeleton_space)
     else:
-        pass
+        a5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][1]
     if e == 0:
@@ -6872,8 +7452,10 @@ def update_world():
         b5.config(bg=back,image=tower)
     elif e == 62:
         b5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b5.config(image=skeleton_space)
     else:
-        pass
+        b5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][2]
     if e == 0:
@@ -7032,8 +7614,10 @@ def update_world():
         c5.config(bg=back,image=tower)
     elif e == 62:
         c5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c5.config(image=skeleton_space)
     else:
-        pass
+        c5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][3]
     if e == 0:
@@ -7192,8 +7776,10 @@ def update_world():
         d5.config(bg=back,image=tower)
     elif e == 62:
         d5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d5.config(image=skeleton_space)
     else:
-        pass
+        d5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][4]
     if e == 0:
@@ -7352,8 +7938,10 @@ def update_world():
         e5.config(bg=back,image=tower)
     elif e == 62:
         e5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e5.config(image=skeleton_space)
     else:
-        pass
+        e5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][5]
     if e == 0:
@@ -7512,8 +8100,10 @@ def update_world():
         f5.config(bg=back,image=tower)
     elif e == 62:
         f5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f5.config(image=skeleton_space)
     else:
-        pass
+        f5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[4][6]
     if e == 0:
@@ -7672,8 +8262,10 @@ def update_world():
         g5.config(bg=back,image=tower)
     elif e == 62:
         g5.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g5.config(image=skeleton_space)
     else:
-        pass
+        g5.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][0]
     if e == 0:
@@ -7832,8 +8424,10 @@ def update_world():
         a6.config(bg=back,image=tower)
     elif e == 62:
         a6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a6.config(image=skeleton_space)
     else:
-        pass
+        a6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][1]
     if e == 0:
@@ -7992,8 +8586,10 @@ def update_world():
         b6.config(bg=back,image=tower)
     elif e == 62:
         b6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b6.config(image=skeleton_space)
     else:
-        pass
+        b6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][2]
     if e == 0:
@@ -8152,8 +8748,10 @@ def update_world():
         c6.config(bg=back,image=tower)
     elif e == 62:
         c6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c6.config(image=skeleton_space)
     else:
-        pass
+        c6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][3]
     if e == 0:
@@ -8312,8 +8910,10 @@ def update_world():
         d6.config(bg=back,image=tower)
     elif e == 62:
         d6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d6.config(image=skeleton_space)
     else:
-        pass
+        d6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][4]
     if e == 0:
@@ -8472,8 +9072,10 @@ def update_world():
         e6.config(bg=back,image=tower)
     elif e == 62:
         e6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e6.config(image=skeleton_space)
     else:
-        pass
+        e6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][5]
     if e == 0:
@@ -8632,8 +9234,10 @@ def update_world():
         f6.config(bg=back,image=tower)
     elif e == 62:
         f6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f6.config(image=skeleton_space)
     else:
-        pass
+        f6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[5][6]
     if e == 0:
@@ -8792,8 +9396,10 @@ def update_world():
         g6.config(bg=back,image=tower)
     elif e == 62:
         g6.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g6.config(image=skeleton_space)
     else:
-        pass
+        g6.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][0]
     if e == 0:
@@ -8952,8 +9558,10 @@ def update_world():
         a7.config(bg=back,image=tower)
     elif e == 62:
         a7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        a7.config(image=skeleton_space)
     else:
-        pass
+        a7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][1]
     if e == 0:
@@ -9112,8 +9720,10 @@ def update_world():
         b7.config(bg=back,image=tower)
     elif e == 62:
         b7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        b7.config(image=skeleton_space)
     else:
-        pass
+        b7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][2]
     if e == 0:
@@ -9272,8 +9882,10 @@ def update_world():
         c7.config(bg=back,image=tower)
     elif e == 62:
         c7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        c7.config(image=skeleton_space)
     else:
-        pass
+        c7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][3]
     if e == 0:
@@ -9432,8 +10044,10 @@ def update_world():
         d7.config(bg=back,image=tower)
     elif e == 62:
         d7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        d7.config(image=skeleton_space)
     else:
-        pass
+        d7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][4]
     if e == 0:
@@ -9592,8 +10206,10 @@ def update_world():
         e7.config(bg=back,image=tower)
     elif e == 62:
         e7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        e7.config(image=skeleton_space)
     else:
-        pass
+        e7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][5]
     if e == 0:
@@ -9752,8 +10368,10 @@ def update_world():
         f7.config(bg=back,image=tower)
     elif e == 62:
         f7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        f7.config(image=skeleton_space)
     else:
-        pass
+        f7.config(image=l_armour)
     #another one bites the dust
     e = seen_world[6][6]
     if e == 0:
@@ -9912,8 +10530,10 @@ def update_world():
         g7.config(bg=back,image=tower)
     elif e == 62:
         g7.config(bg=back,image=rasta)
+    elif e == 63 or e == 64:
+        g7.config(image=skeleton_space)
     else:
-        pass
+        g7.config(image=l_armour)
     #another one bites the dust
     global jump
     if not(world[y+1][x] == 0):
@@ -9953,6 +10573,20 @@ def update_world():
     global moves
     if st == 0:
         moves = 0
+    ################
+    global storage
+    global stor
+    try:
+        if world[y+1][x] < 0:
+           pass
+    except:
+        pass
+    else:
+        if stor == True:
+            world[y+2][x] = storage
+            storage = [0,0,0,0,0]
+            stor = False
+    ################
 #holy shit
 def n():
     pass
@@ -9976,6 +10610,15 @@ def move_timer():
         moves = 0
 move_timer()
 #use prev_block
+def mini():
+    global world
+    global prev_block
+    y = find_player_y()  
+    x = find_player_x(y)
+    if world[y+1][x] == 0:
+        world[y+1][x] = 44
+        world[y][x] = prev_block
+        prev_block = 0
 def up(event): #up is world [y-1][x]
   try:
     global jump
@@ -10000,6 +10643,8 @@ def up(event): #up is world [y-1][x]
         boat_ = False
         world[y][x] = 31
     update_world()
+    if (not prev_block in fly) or (not world[y+1][x] in fly):
+        tk.after(800,mini)
   except:
     pass
 def down(event): #down is world [y+1][x]
@@ -10034,6 +10679,11 @@ def left(event): #left is world [y][x-1]
     global moves
     global go_through
     global jump
+    #
+    global stor
+    if stor == True:
+        raise SyntaxError
+    #
     y = find_player_y()  
     x = find_player_x(y)
     if (world[y][x-1] in go_through) and (moves == 1):
@@ -10056,6 +10706,11 @@ def d_left(event):
     global go_through2
     global go_through
     global jump
+    #
+    global stor
+    if stor == True:
+        raise SyntaxError
+    #
     y = find_player_y()  
     x = find_player_x(y)
     if (world[y][x-1] in go_through2) and (moves == 1) and (world[y][x-2] in go_through):
@@ -10080,6 +10735,11 @@ def d_right(event):
     global go_through2
     global go_through
     global jump
+    #
+    global stor
+    if stor == True:
+        raise SyntaxError
+    #
     y = find_player_y()  
     x = find_player_x(y)
     if (world[y][x+1] in go_through2) and (moves == 1) and (world[y][x+2] in go_through):
@@ -10103,6 +10763,11 @@ def right(event): #right is world [y][x+1]
     global moves
     global go_through
     global jump
+    #
+    global stor
+    if stor == True:
+        raise SyntaxError
+    #
     y = find_player_y()  
     x = find_player_x(y)
     if (world[y][x+1] in go_through) and (moves == 1):
@@ -10416,6 +11081,28 @@ def spawn_38():
         skeleton_l1_att = False
         world[y+c][x+d] = 38
         update_world()
+def spawn_space():
+    global world
+    global prev_block
+    for i in range(3):
+        remove_and_replace(63,27)
+        remove_and_replace(64,3)
+    y = find_player_y()
+    x = find_player_x(y)
+    if prev_block == 27:
+        for i in range(3):
+            a = random.randint(-3,3)
+            b = random.randint(-3,3)
+            if world[y+a][b+x] == 27 and find_amount_of(63) < 3:
+                world[y+a][b+x] = 63
+    elif prev_block == 3:
+        for i in range(3):
+            a = random.randint(-3,3)
+            b = random.randint(-3,3)
+            if world[y+a][b+x] == 3 and find_amount_of(64) < 3:
+                world[y+a][b+x] = 64
+    else:
+        pass
 #---------------------------------------#
 def move_fish():
     global world
@@ -10629,6 +11316,10 @@ def get_attacked_by(enemy):
                 d_right(0)
         elif enemy == 48:
             st = st - 4
+        elif enemy == 63 or enemy == 64:
+            st = st - 4
+            e = calc(5)
+            wt = wt - e
 def get_attacked_by_36():
   if obj_in_world(36) == True:
     global wt
@@ -10771,7 +11462,7 @@ def pause_():
         puase.config(text="Unpause")
         time = 13
 puase = tkinter.Button(tk,bg=colour,fg="#ffffff",text="Pause",command=pause_)
-puase.place(x=200,y=600)
+puase.place(x=200,y=605)
 def time_():
     global time
     global pause
@@ -10781,6 +11472,7 @@ def time_():
         move_world()
         tk.after(250,time_)
 import sys
+entities = [32,33,34,35,36,37,38,39,40,41,42,43,45,47,48,53,62,63,64]
 def move_world():
     global world
     global time
@@ -10792,6 +11484,7 @@ def move_world():
     global prev_block
     global block
     global boat_
+    global entities
     if time % 1024 == 0:
         if day == True:
             day = False
@@ -10861,10 +11554,14 @@ def move_world():
         remove_and_replace(48,0)
         remove_and_replace(53,0)
         remove_and_replace(54,0)
+        for i in range(3):
+            remove_and_replace(63,27)
+            remove_and_replace(64,3)
         if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
     elif time % 24 == 0:
         spawn_skeleton()
+        spawn_space()
         spawn_dungeon(45)
         spawn_dungeon(40)
         spawn_dungeon(45)
@@ -10878,6 +11575,8 @@ def move_world():
         get_attacked_by(45)
         get_attacked_by(43)
         get_attacked_by(48)
+        get_attacked_by(63)
+        get_attacked_by(64)
         spawn_bullet()
         get_attacked_by_41()
         if (prev_block == 3 or prev_block == 59 or prev_block == 58):
@@ -10897,9 +11596,14 @@ def move_world():
         get_attacked_by(45)
         get_attacked_by(43)
         get_attacked_by(48)
+        get_attacked_by(63)
+        get_attacked_by(64)
         get_attacked_by_41()
         if (prev_block == 3 or prev_block == 59 or prev_block == 58):
             st += -1
+    elif time % 5 == 0:
+        if prev_block in entities:
+            wt += -1
     elif time % 4 == 0:
         move_fish()
         move_enemy(45)
@@ -10912,6 +11616,8 @@ def move_world():
         get_attacked_by(45)
         get_attacked_by(43)
         get_attacked_by(48)
+        get_attacked_by(63)
+        get_attacked_by(64)
         move_38()
     elif time % 3 == 0:
         move_enemy(34)
@@ -10971,6 +11677,8 @@ def move_world():
         update_world()
         sys.exit()
         #raise SyntaxError("GAME OVER  Restart the game to retry.")
+    global stor
+    #print(stor)
     update_world()
 #---------------------------------------------#
 trads = tkinter.Label(tk,text="TRADES/RECIPES:",bg=colour,fg="#ffffff")
@@ -11282,5 +11990,11 @@ tk.bind("<KeyRelease-n>",block_)
 tk.bind("<KeyRelease-u>",drop)
 tk.bind("<KeyRelease-q>",d_left)
 tk.bind("<KeyRelease-e>",d_right)
+#while True:
+#   print("e")
+#-------------------#
+#nick = tkinter.Label(tk,bg=colour,fg="#ffffff",text="Thank you.")
+#nick.place(x=400,y=645)
 #+++
+print("WELCOME TO BONES")
 tkinter.mainloop()

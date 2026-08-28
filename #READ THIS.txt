@@ -15,7 +15,7 @@ unharmed and the wisest of the people who were responsible for this mistake were
 Your quest is to destroy the 30 cursed purple lanterns around the world. The lanterns require a cutlass to be destroyed. you are the last remaining soldier of the world.
 
 Controls:
-Use the arrow buttons to move or w a s d.
+Use the arrow buttons (NOT keys, there are buttons on the screen) to move or w a s d.
 Dashing:
 Press q to dash left and e to dash right. This can get you across small gaps and past entities.
 
@@ -71,6 +71,7 @@ Bushes might have other useful items as well as berries.
 Skeletons and boars are bad. Everything else is good.
 When you defeat an enemy, you might get a useful item added to your inventory.
 Herbs are rare, acquired exclusively by trading.
+Try not to share the same block as entities, you will take suffocation damage.
 
 
 The player:
@@ -236,7 +237,7 @@ MUSHROOM UPDATE:
 MUSHROOMS! IN THE SKY!
 You can climb up stems and jump on clouds.
 
-SUPER UPDATE:
+OCEAN UPDATE:
 Updated seas, loot tables, space, rasta skeletons, cannons, boat pirates!
 Just don't get shot by cannons from boat pirates. 
 You can't attack the rasta skeletons because they are harmless. Boat pirates can not directly attack you or move but their few 
@@ -244,3 +245,23 @@ weaknesses in their bones are protected by the boat, making them invulnerable. B
 
 Space towers:
 The people of old once tried to explore space, and they successfully did, creating these almost futuristic outposts while they tried to study what was beyond.
+
+MINI UPDATE:
+
+Space skeletons:
+Ancient space explorers that also travelled in the oceans. They are incredibly weak and they lack propulsive force. Do not underestimate them 
+because their powerful punches deal 5 damage and 4 strain.
+
+Tip: After jumping and landing, wait half a second before jumping again. You must be on a ladder to not fall, not in it.
+
+UPDATED INVENTORY MANAGEMENT!
+Clicking any item puts it in the right hand. Using armour or shields puts them to your armour and left hand spots.
+Click the left hand or armour to return it to your inventory if you have enough space.
+
+Storage:
+You can now store items!  While holding leather armour, press "place storage" with a block below you. You can only open storage from above and you 
+can jump to exit storage or you can click the storage again. Click "empty storage" to empty it and press "store item" to store the item in your right hand.
+You can not move left or right while in storage. Do not try to store too many items or you will just end up dropping the item.
+
+There is a new herb! It is a one hit wonder.    And, all the chests have a mouse infestation problem. The mouse has no use, it just likes your inventory.
+
