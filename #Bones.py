@@ -2704,7 +2704,7 @@ def update_world():
         else:
             a1.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a1.config(bg=back,image=pirate_attack_right)
         else:
             a1.config(bg=back,image=pirate_right)
@@ -2866,7 +2866,7 @@ def update_world():
         else:
             b1.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b1.config(bg=back,image=pirate_attack_right)
         else:
             b1.config(bg=back,image=pirate_right)
@@ -3028,7 +3028,7 @@ def update_world():
         else:
             c1.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c1.config(bg=back,image=pirate_attack_right)
         else:
             c1.config(bg=back,image=pirate_right)
@@ -3190,7 +3190,7 @@ def update_world():
         else:
             d1.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d1.config(bg=back,image=pirate_attack_right)
         else:
             d1.config(bg=back,image=pirate_right)
@@ -3352,7 +3352,7 @@ def update_world():
         else:
             e1.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e1.config(bg=back,image=pirate_attack_left)
         else:
             e1.config(bg=back,image=pirate_left)
@@ -3514,7 +3514,7 @@ def update_world():
         else:
             f1.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f1.config(bg=back,image=pirate_attack_left)
         else:
             f1.config(bg=back,image=pirate_left)
@@ -3676,7 +3676,7 @@ def update_world():
         else:
             g1.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g1.config(bg=back,image=pirate_attack_left)
         else:
             g1.config(bg=back,image=pirate_left)
@@ -3838,7 +3838,7 @@ def update_world():
         else:
             a2.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a2.config(bg=back,image=pirate_attack_right)
         else:
             a2.config(bg=back,image=pirate_right)
@@ -4000,7 +4000,7 @@ def update_world():
         else:
             b2.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b2.config(bg=back,image=pirate_attack_right)
         else:
             b2.config(bg=back,image=pirate_right)
@@ -4162,7 +4162,7 @@ def update_world():
         else:
             c2.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c2.config(bg=back,image=pirate_attack_right)
         else:
             c2.config(bg=back,image=pirate_right)
@@ -4324,7 +4324,7 @@ def update_world():
         else:
             d2.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d2.config(bg=back,image=pirate_attack_right)
         else:
             d2.config(bg=back,image=pirate_right)
@@ -4486,7 +4486,7 @@ def update_world():
         else:
             e2.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e2.config(bg=back,image=pirate_attack_left)
         else:
             e2.config(bg=back,image=pirate_left)
@@ -4648,7 +4648,7 @@ def update_world():
         else:
             f2.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f2.config(bg=back,image=pirate_attack_left)
         else:
             f2.config(bg=back,image=pirate_left)
@@ -4810,7 +4810,7 @@ def update_world():
         else:
             g2.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g2.config(bg=back,image=pirate_attack_left)
         else:
             g2.config(bg=back,image=pirate_left)
@@ -4972,7 +4972,7 @@ def update_world():
         else:
             a3.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a3.config(bg=back,image=pirate_attack_right)
         else:
             a3.config(bg=back,image=pirate_right)
@@ -5134,7 +5134,7 @@ def update_world():
         else:
             b3.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b3.config(bg=back,image=pirate_attack_right)
         else:
             b3.config(bg=back,image=pirate_right)
@@ -5296,7 +5296,7 @@ def update_world():
         else:
             c3.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c3.config(bg=back,image=pirate_attack_right)
         else:
             c3.config(bg=back,image=pirate_right)
@@ -5458,7 +5458,7 @@ def update_world():
         else:
             d3.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d3.config(bg=back,image=pirate_attack_right)
         else:
             d3.config(bg=back,image=pirate_right)
@@ -5620,7 +5620,7 @@ def update_world():
         else:
             e3.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e3.config(bg=back,image=pirate_attack_left)
         else:
             e3.config(bg=back,image=pirate_left)
@@ -5782,7 +5782,7 @@ def update_world():
         else:
             f3.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f3.config(bg=back,image=pirate_attack_left)
         else:
             f3.config(bg=back,image=pirate_left)
@@ -5944,7 +5944,7 @@ def update_world():
         else:
             g3.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g3.config(bg=back,image=pirate_attack_left)
         else:
             g3.config(bg=back,image=pirate_left)
@@ -6106,7 +6106,7 @@ def update_world():
         else:
             a4.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a4.config(bg=back,image=pirate_attack_right)
         else:
             a4.config(bg=back,image=pirate_right)
@@ -6268,7 +6268,7 @@ def update_world():
         else:
             b4.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b4.config(bg=back,image=pirate_attack_right)
         else:
             b4.config(bg=back,image=pirate_right)
@@ -6430,7 +6430,7 @@ def update_world():
         else:
             c4.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c4.config(bg=back,image=pirate_attack_right)
         else:
             c4.config(bg=back,image=pirate_right)
@@ -6592,7 +6592,7 @@ def update_world():
         else:
             d4.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d4.config(bg=back,image=pirate_attack_right)
         else:
             d4.config(bg=back,image=pirate_right)
@@ -6761,7 +6761,7 @@ def update_world():
         else:
             e4.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e4.config(bg=back,image=pirate_attack_left)
         else:
             e4.config(bg=back,image=pirate_left)
@@ -6923,7 +6923,7 @@ def update_world():
         else:
             f4.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f4.config(bg=back,image=pirate_attack_left)
         else:
             f4.config(bg=back,image=pirate_left)
@@ -7085,7 +7085,7 @@ def update_world():
         else:
             g4.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g4.config(bg=back,image=pirate_attack_left)
         else:
             g4.config(bg=back,image=pirate_left)
@@ -7247,7 +7247,7 @@ def update_world():
         else:
             a5.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a5.config(bg=back,image=pirate_attack_right)
         else:
             a5.config(bg=back,image=pirate_right)
@@ -7409,7 +7409,7 @@ def update_world():
         else:
             b5.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b5.config(bg=back,image=pirate_attack_right)
         else:
             b5.config(bg=back,image=pirate_right)
@@ -7571,7 +7571,7 @@ def update_world():
         else:
             c5.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c5.config(bg=back,image=pirate_attack_right)
         else:
             c5.config(bg=back,image=pirate_right)
@@ -7733,7 +7733,7 @@ def update_world():
         else:
             d5.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d5.config(bg=back,image=pirate_attack_right)
         else:
             d5.config(bg=back,image=pirate_right)
@@ -7895,7 +7895,7 @@ def update_world():
         else:
             e5.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e5.config(bg=back,image=pirate_attack_left)
         else:
             e5.config(bg=back,image=pirate_left)
@@ -8057,7 +8057,7 @@ def update_world():
         else:
             f5.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f5.config(bg=back,image=pirate_attack_left)
         else:
             f5.config(bg=back,image=pirate_left)
@@ -8219,7 +8219,7 @@ def update_world():
         else:
             g5.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g5.config(bg=back,image=pirate_attack_left)
         else:
             g5.config(bg=back,image=pirate_left)
@@ -8381,7 +8381,7 @@ def update_world():
         else:
             a6.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a6.config(bg=back,image=pirate_attack_right)
         else:
             a6.config(bg=back,image=pirate_right)
@@ -8543,7 +8543,7 @@ def update_world():
         else:
             b6.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b6.config(bg=back,image=pirate_attack_right)
         else:
             b6.config(bg=back,image=pirate_right)
@@ -8705,7 +8705,7 @@ def update_world():
         else:
             c6.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c6.config(bg=back,image=pirate_attack_right)
         else:
             c6.config(bg=back,image=pirate_right)
@@ -8867,7 +8867,7 @@ def update_world():
         else:
             d6.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d6.config(bg=back,image=pirate_attack_right)
         else:
             d6.config(bg=back,image=pirate_right)
@@ -9029,7 +9029,7 @@ def update_world():
         else:
             e6.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e6.config(bg=back,image=pirate_attack_left)
         else:
             e6.config(bg=back,image=pirate_left)
@@ -9191,7 +9191,7 @@ def update_world():
         else:
             f6.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f6.config(bg=back,image=pirate_attack_left)
         else:
             f6.config(bg=back,image=pirate_left)
@@ -9353,7 +9353,7 @@ def update_world():
         else:
             g6.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g6.config(bg=back,image=pirate_attack_left)
         else:
             g6.config(bg=back,image=pirate_left)
@@ -9515,7 +9515,7 @@ def update_world():
         else:
             a7.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             a7.config(bg=back,image=pirate_attack_right)
         else:
             a7.config(bg=back,image=pirate_right)
@@ -9677,7 +9677,7 @@ def update_world():
         else:
             b7.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             b7.config(bg=back,image=pirate_attack_right)
         else:
             b7.config(bg=back,image=pirate_right)
@@ -9839,7 +9839,7 @@ def update_world():
         else:
             c7.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             c7.config(bg=back,image=pirate_attack_right)
         else:
             c7.config(bg=back,image=pirate_right)
@@ -10001,7 +10001,7 @@ def update_world():
         else:
             d7.config(bg=back,image=bone_skeleton_right)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             d7.config(bg=back,image=pirate_attack_right)
         else:
             d7.config(bg=back,image=pirate_right)
@@ -10163,7 +10163,7 @@ def update_world():
         else:
             e7.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             e7.config(bg=back,image=pirate_attack_left)
         else:
             e7.config(bg=back,image=pirate_left)
@@ -10325,7 +10325,7 @@ def update_world():
         else:
             f7.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             f7.config(bg=back,image=pirate_attack_left)
         else:
             f7.config(bg=back,image=pirate_left)
@@ -10487,7 +10487,7 @@ def update_world():
         else:
             g7.config(bg=back,image=bone_skeleton_left)
     elif e == 41:
-        if skeleton2_att == True:
+        if skeleton_p_att == True:
             g7.config(bg=back,image=pirate_attack_left)
         else:
             g7.config(bg=back,image=pirate_left)

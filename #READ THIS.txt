@@ -255,8 +255,9 @@ because their powerful punches deal 5 damage and 4 strain.
 Tip: After jumping and landing, wait half a second before jumping again. You must be on a ladder to not fall, not in it.
 
 UPDATED INVENTORY MANAGEMENT!
-Clicking any item puts it in the right hand. Using armour or shields puts them to your armour and left hand spots.
-Click the left hand or armour to return it to your inventory if you have enough space.
+Clicking any item puts it in the right hand. Using armour or shields puts them to your armour and left hand spots. This
+drops the item previously stored there. Click the left hand or armour to return it to your inventory if you have enough 
+space.
 
 Storage:
 You can now store items!  While holding leather armour, press "place storage" with a block below you. You can only open storage from above and you 
